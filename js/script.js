@@ -30,6 +30,9 @@
     document.querySelectorAll('.lang-switch button').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+    document.querySelectorAll('.faq-item.open .faq-a').forEach((a) => {
+      a.style.maxHeight = a.scrollHeight + 'px';
+    });
   }
 
   function setLang(lang) {
@@ -160,6 +163,25 @@
       );
       revealEls.forEach((el) => io.observe(el));
     }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        item.closest('.faq-list').querySelectorAll('.faq-item.open').forEach((openItem) => {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+            openItem.querySelector('.faq-a').style.maxHeight = '0px';
+          }
+        });
+        item.classList.toggle('open', !isOpen);
+        q.setAttribute('aria-expanded', String(!isOpen));
+        a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : '0px';
+      });
+    });
 
     // Contact form submission
     const form = document.getElementById('contactForm');
