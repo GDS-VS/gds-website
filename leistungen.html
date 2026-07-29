@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Leistungen &amp; Preise — GDS Villingen-Schwenningen</title>
+<meta name="description" content="Website-Erstellung, SEO-Optimierung, Redesign und Wartung für Unternehmen in Villingen-Schwenningen und Umgebung — transparent in drei Preismodellen: Basic, Advanced, Pro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Alex+Brush&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "GDS",
+  "url": "https://gds-vs.de",
+  "email": "kontakt@gds-vs.de",
+  "telephone": "+49-123-456789",
+  "priceRange": "€€",
+  "description": "Webdesign, SEO-Optimierung, Redesign und Wartung für Unternehmen in Villingen-Schwenningen und der Region.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Villingen-Schwenningen",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "areaServed": ["Villingen-Schwenningen", "Schwarzwald-Baar-Kreis", "Donaueschingen", "Rottweil", "Tuttlingen", "Bad Dürrheim", "St. Georgen"]
+}
+</script>
+</head><body>
+
+<!-- ============ WORK IN PROGRESS GATE ============ -->
+<div id="wipGate">
+  <div class="wip-inner">
+    <div class="wip-badge">Work in Progress</div>
+    <div class="wip-title">Diese Seite ist noch nicht live</div>
+    <p class="wip-sub">This page isn't public yet — enter the password to preview it.<br>Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
+    <form id="wipForm" class="wip-form">
+      <input type="password" id="wipPassword" placeholder="Passwort" autocomplete="off" required>
+      <button type="submit">Ansehen</button>
+    </form>
+    <div class="wip-error" id="wipError"></div>
+  </div>
+</div>
+
+<div id="langSplash">
+  <div class="splash-inner">
+    <div class="splash-logo"><span class="splash-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="splash-script">GDS</span></div>
+    <div class="splash-title">Welcome — Willkommen</div>
+    <div class="splash-sub">Choose your language / Wähle deine Sprache</div>
+    <div class="splash-buttons">
+      <button class="splash-btn" data-splash-lang="de">Deutsch<span class="splash-flag">DE</span></button>
+      <button class="splash-btn" data-splash-lang="en">English<span class="splash-flag">EN</span></button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+      <span class="logo-script">GDS</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
+        <li><a href="leistungen.html" class="active"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
+        <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
+        <li><a href="kontakt.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switch">
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="kontakt.html" class="btn-cta"><span class="lang-de">Erstberatung</span><span class="lang-en">Free Consult</span></a>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="hero" style="padding:80px 0 70px;">
+  <div class="container hero-inner">
+    <div class="eyebrow"><span class="dot"></span>
+      <span class="lang-de">Leistungen &amp; Preise</span><span class="lang-en">Services &amp; Pricing</span>
+    </div>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);">
+      <span class="lang-de">Klare Leistungen. <span class="grad-text">Faire Preise.</span></span>
+      <span class="lang-en">Clear services. <span class="grad-text">Fair prices.</span></span>
+    </h1>
+    <p class="lead">
+      <span class="lang-de">Ob neue Website, mehr Sichtbarkeit oder laufende Betreuung — wählen Sie das passende Modell oder sprechen Sie uns auf eine individuelle Lösung an.</span>
+      <span class="lang-en">Whether it's a new website, more visibility, or ongoing support — choose the right plan or ask us about a custom solution.</span>
+    </p>
+  </div>
+  <svg class="hero-illustration hero-illustration--sm" viewBox="0 0 560 560" fill="none" aria-hidden="true">
+    <circle cx="410" cy="170" r="150" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+    <circle cx="460" cy="400" r="95" stroke="#7a7ae0" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <circle cx="90" cy="440" r="60" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+    <line x1="150" y1="80" x2="300" y2="230" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" stroke-dasharray="2 5"/>
+    <line x1="300" y1="230" x2="380" y2="330" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" stroke-dasharray="2 5"/>
+    <circle cx="150" cy="80" r="4" fill="#7a7ae0" fill-opacity="0.8"/>
+    <circle cx="380" cy="330" r="4" fill="#ffffff" fill-opacity="0.6"/>
+    <g transform="translate(235,195)">
+      <rect x="0" y="0" width="140" height="100" rx="8" stroke="rgba(255,255,255,0.2)" stroke-width="1.4"/>
+      <line x1="16" y1="82" x2="124" y2="82" stroke="rgba(255,255,255,0.22)" stroke-width="1.3"/>
+      <rect x="26" y="58" width="14" height="24" rx="2" fill="rgba(255,255,255,0.22)"/>
+      <rect x="50" y="44" width="14" height="38" rx="2" fill="rgba(255,255,255,0.3)"/>
+      <rect x="74" y="30" width="14" height="52" rx="2" fill="#7a7ae0" fill-opacity="0.6"/>
+      <rect x="98" y="18" width="14" height="64" rx="2" fill="rgba(255,255,255,0.4)"/>
+    </g>
+    <g transform="translate(378,338) rotate(-6)">
+      <circle cx="20" cy="20" r="20" stroke="#7a7ae0" stroke-opacity="0.5" stroke-width="1.8"/>
+      <line x1="34" y1="34" x2="52" y2="52" stroke="#7a7ae0" stroke-opacity="0.5" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ SERVICES DETAIL ============ -->
+<section class="section-light">
+  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+  </svg>
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="kicker"><span class="lang-de">Unsere Kernleistungen</span><span class="lang-en">Our Core Services</span></div>
+      <h2><span class="lang-de">Vier Bausteine für Ihren Online-Erfolg</span><span class="lang-en">Four building blocks for your online success</span></h2>
+    </div>
+    <div class="grid-2 reveal-group">
+      <div class="card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+        <h3><span class="lang-de">Website-Erstellung</span><span class="lang-en">Website Creation</span></h3>
+        <p><span class="lang-de">Individuell gestaltete, responsive Websites — von der Landingpage bis zum mehrseitigen Auftritt.</span><span class="lang-en">Custom-designed, responsive websites — from a single landing page to a full multi-page presence.</span></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Responsive Design für alle Geräte</span><span class="lang-en">Responsive design for all devices</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Modernes, individuelles Design</span><span class="lang-en">Modern, custom-tailored design</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Schnelle Ladezeiten &amp; sauberer Code</span><span class="lang-en">Fast load times &amp; clean code</span></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+        <h3><span class="lang-de">SEO-Optimierung</span><span class="lang-en">SEO Optimization</span></h3>
+        <p><span class="lang-de">Damit Ihre Website bei Google gefunden wird — technisch, inhaltlich und lokal optimiert.</span><span class="lang-en">So your website actually gets found on Google — optimized technically, on-page, and locally.</span></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Keyword- &amp; Wettbewerbsanalyse</span><span class="lang-en">Keyword &amp; competitor analysis</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">On-Page &amp; technische SEO</span><span class="lang-en">On-page &amp; technical SEO</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Lokale Sichtbarkeit (Google Maps &amp; Co.)</span><span class="lang-en">Local visibility (Google Maps &amp; more)</span></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></div>
+        <h3><span class="lang-de">Redesign</span><span class="lang-en">Redesign</span></h3>
+        <p><span class="lang-de">Ihre Website ist veraltet oder unübersichtlich? Wir geben ihr ein zeitgemäßes, professionelles Gesicht.</span><span class="lang-en">Is your website outdated or cluttered? We give it a modern, professional new face.</span></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Analyse der bestehenden Seite</span><span class="lang-en">Analysis of your existing site</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Neues Design bei erhaltenen Inhalten</span><span class="lang-en">New design while keeping your content</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Verbesserte Nutzerführung</span><span class="lang-en">Improved user experience</span></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+        <h3><span class="lang-de">Wartung</span><span class="lang-en">Maintenance</span></h3>
+        <p><span class="lang-de">Damit Ihre Website dauerhaft sicher, aktuell und performant bleibt.</span><span class="lang-en">Keeping your website secure, up to date, and fast — permanently.</span></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Regelmäßige Updates &amp; Backups</span><span class="lang-en">Regular updates &amp; backups</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Inhaltliche Aktualisierungen</span><span class="lang-en">Content updates</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Support bei Fragen &amp; Problemen</span><span class="lang-en">Support for questions &amp; issues</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="kicker"><span class="lang-de">Preismodelle</span><span class="lang-en">Pricing Plans</span></div>
+      <h2><span class="lang-de">Basic, Advanced oder Pro — Sie entscheiden.</span><span class="lang-en">Basic, Advanced, or Pro — you decide.</span></h2>
+      <p><span class="lang-de">Alle Pakete sind individualisierbar. Die folgenden Werte sind Richtpreise für einen ersten Überblick.</span><span class="lang-en">All packages can be customized. The prices below are indicative starting points.</span></p>
+    </div>
+
+    <div class="pricing-grid reveal-group">
+      <!-- BASIC -->
+      <div class="plan">
+        <div class="plan-name">Basic</div>
+        <div class="plan-price">590 €<span> <span class="lang-de">ab / einmalig</span><span class="lang-en">from / one-time</span></span></div>
+        <div class="plan-desc"><span class="lang-de">Für den professionellen Einstieg ins Web.</span><span class="lang-en">For a professional start on the web.</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">1 Landingpage (bis zu 5 Bereiche)</span><span class="lang-en">1 landing page (up to 5 sections)</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Responsive Design</span><span class="lang-en">Responsive design</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Grundlegende On-Page SEO</span><span class="lang-en">Basic on-page SEO</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Kontaktformular</span><span class="lang-en">Contact form</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Lieferzeit: ca. 1–2 Wochen</span><span class="lang-en">Delivery: approx. 1–2 weeks</span></span></li>
+        </ul>
+        <a href="kontakt.html" class="btn-outline" style="text-align:center;"><span class="lang-de">Anfragen</span><span class="lang-en">Get Started</span></a>
+      </div>
+
+      <!-- ADVANCED -->
+      <div class="plan featured">
+        <div class="badge"><span class="lang-de">Beliebteste Wahl</span><span class="lang-en">Most Popular</span></div>
+        <div class="plan-name">Advanced</div>
+        <div class="plan-price">1.290 €<span> <span class="lang-de">ab / einmalig</span><span class="lang-en">from / one-time</span></span></div>
+        <div class="plan-desc"><span class="lang-de">Für Unternehmen, die online sichtbar wachsen wollen.</span><span class="lang-en">For businesses that want to grow their online visibility.</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Bis zu 5 Unterseiten</span><span class="lang-en">Up to 5 subpages</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Individuelles Design nach Ihrer CI</span><span class="lang-en">Custom design matching your brand</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Erweiterte SEO-Optimierung</span><span class="lang-en">Advanced SEO optimization</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Google Maps &amp; Terminbuchung integriert</span><span class="lang-en">Google Maps &amp; booking integration</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">3 Monate Wartung inklusive</span><span class="lang-en">3 months of maintenance included</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Lieferzeit: ca. 2–4 Wochen</span><span class="lang-en">Delivery: approx. 2–4 weeks</span></span></li>
+        </ul>
+        <a href="kontakt.html" class="btn-cta" style="text-align:center;"><span class="lang-de">Anfragen</span><span class="lang-en">Get Started</span></a>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan">
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">2.490 €<span> <span class="lang-de">ab / einmalig</span><span class="lang-en">from / one-time</span></span></div>
+        <div class="plan-desc"><span class="lang-de">Die Komplettlösung für maximale Wirkung.</span><span class="lang-en">The full package for maximum impact.</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Unbegrenzte Unterseiten &amp; Funktionen</span><span class="lang-en">Unlimited subpages &amp; custom features</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Premium Design &amp; Branding-Beratung</span><span class="lang-en">Premium design &amp; branding consultation</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Vollständige SEO-Strategie</span><span class="lang-en">Full SEO strategy</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Laufende Wartung &amp; Priority Support</span><span class="lang-en">Ongoing maintenance &amp; priority support</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Persönlicher Ansprechpartner</span><span class="lang-en">Dedicated point of contact</span></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><span class="lang-de">Lieferzeit: nach Absprache</span><span class="lang-en">Delivery: by arrangement</span></span></li>
+        </ul>
+        <a href="kontakt.html" class="btn-outline" style="text-align:center;"><span class="lang-de">Anfragen</span><span class="lang-en">Get Started</span></a>
+      </div>
+    </div>
+
+    <p class="plan-note">
+      <span class="lang-de">Alle Preise verstehen sich als unverbindliche Richtwerte zzgl. MwSt. Individuelle Angebote &amp; Kombinationen jederzeit nach Absprache möglich.</span>
+      <span class="lang-en">All prices are non-binding estimates plus applicable tax. Custom quotes &amp; combinations available on request at any time.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section-light cta-section">
+  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+  </svg>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2><span class="lang-de">Unsicher, welches Paket zu Ihnen passt?</span><span class="lang-en">Not sure which plan fits you?</span></h2>
+      <p><span class="lang-de">In der kostenlosen Erstberatung finden wir gemeinsam die passende Lösung.</span><span class="lang-en">In our free consultation, we'll find the right solution together.</span></p>
+      <a href="kontakt.html" class="btn-cta"><span class="lang-de">Kostenlose Beratung anfragen</span><span class="lang-en">Request a Free Consultation</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="logo-script">GDS</span></a>
+        <p><span class="lang-de">Webdesign, SEO-Optimierung, Redesign &amp; Wartung für Unternehmen, die online sichtbar sein wollen.</span><span class="lang-en">Web design, SEO, redesign &amp; maintenance for businesses that want to be seen online.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span class="lang-de">Navigation</span><span class="lang-en">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
+          <li><a href="leistungen.html"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
+          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
+          <li><a href="kontakt.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
+        <ul>
+          <li>kontakt@gds-vs.de</li>
+          <li>+49 (0) 123 456 789</li>
+          <li><span class="lang-de">Villingen-Schwenningen</span><span class="lang-en">Villingen-Schwenningen, Germany</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GDS. <span class="lang-de">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></span>
+      <span>Made in Villingen-Schwenningen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

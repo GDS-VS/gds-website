@@ -1,0 +1,202 @@
+// ===================================================
+// GDS – Shared script (language, nav, form)
+// ===================================================
+
+(function () {
+  const root = document.documentElement;
+  const STORAGE_KEY = 'gk_lang';
+
+  // ---- Work-in-progress password gate ----
+  const WIP_KEY = 'gds_unlocked';
+  const WIP_HASH = '4332cd76590d0efdbd8d067acf531546da2ba0a67c538440e7defedbea48d1dc';
+
+  async function sha256Hex(text) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  function hideWipGate() {
+    const gate = document.getElementById('wipGate');
+    if (gate) gate.classList.add('hidden');
+  }
+
+  if (localStorage.getItem(WIP_KEY) === 'true') {
+    hideWipGate();
+  }
+
+  function applyLang(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+  }
+
+  function setLang(lang) {
+    localStorage.setItem(STORAGE_KEY, lang);
+    applyLang(lang);
+  }
+
+  function hideSplash() {
+    const splash = document.getElementById('langSplash');
+    if (splash) splash.classList.add('hidden');
+  }
+
+  // Init language on every page load
+  const savedLang = localStorage.getItem(STORAGE_KEY);
+  if (savedLang) {
+    applyLang(savedLang);
+    hideSplash();
+  } else {
+    applyLang('de'); // default while splash is visible
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Work-in-progress password gate
+    const wipForm = document.getElementById('wipForm');
+    if (wipForm) {
+      wipForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = document.getElementById('wipPassword');
+        const error = document.getElementById('wipError');
+        const hash = await sha256Hex(input.value.trim());
+        if (hash === WIP_HASH) {
+          localStorage.setItem(WIP_KEY, 'true');
+          hideWipGate();
+        } else {
+          error.textContent = 'Falsches Passwort. / Wrong password.';
+          input.value = '';
+          input.focus();
+        }
+      });
+    }
+
+    // Splash buttons (only present on pages that include the splash markup)
+    document.querySelectorAll('[data-splash-lang]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setLang(btn.dataset.splashLang);
+        hideSplash();
+      });
+    });
+
+    // Header language switch (DE | EN toggle, always visible after splash)
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Mobile nav toggle
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('mainNav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        nav.classList.toggle('open');
+      });
+      nav.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => {
+          burger.classList.remove('open');
+          nav.classList.remove('open');
+        })
+      );
+    }
+
+    // Header scroll shadow + adaptive color (the header switches between its
+    // dark and light gradient depending on which section sits at its position)
+    const header = document.querySelector('header.site-header');
+    if (header) {
+      const sections = Array.from(document.querySelectorAll('section')).map((el) => ({
+        el,
+        isLight: !el.classList.contains('hero') && !el.classList.contains('section-dark'),
+      }));
+      let ticking = false;
+
+      const updateHeaderContrast = () => {
+        // Probe right at the header's own bottom edge: at scrollY 0 the header
+        // still sits in normal flow (nothing is "underneath" it yet), so the
+        // section starting immediately below must count as the current one.
+        const probe = header.offsetHeight;
+        let current = null;
+        for (const s of sections) {
+          const rect = s.el.getBoundingClientRect();
+          if (rect.top <= probe && rect.bottom > probe) {
+            current = s;
+            break;
+          }
+        }
+        if (!current) current = sections[0];
+        if (!current) return;
+        header.classList.toggle('on-light', current.isLight);
+      };
+
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateHeaderContrast();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('resize', updateHeaderContrast);
+      updateHeaderContrast();
+    }
+
+    // Scroll-triggered reveal animations
+    const revealEls = document.querySelectorAll('.reveal, .reveal-group');
+    if (revealEls.length) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    }
+
+    // Contact form submission
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msg = document.getElementById('formMsg');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = '...';
+        submitBtn.disabled = true;
+
+        try {
+          // TODO: Replace with your own Formspree endpoint (https://formspree.io)
+          // Sign up for free, create a form, and paste the endpoint ID below.
+          const endpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
+          });
+
+          if (res.ok) {
+            msg.textContent = msg.dataset.ok;
+            msg.className = 'form-msg show ok';
+            form.reset();
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (err) {
+          msg.textContent = msg.dataset.err;
+          msg.className = 'form-msg show err';
+        } finally {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  });
+})();

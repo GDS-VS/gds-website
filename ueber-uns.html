@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Über uns — GDS aus Villingen-Schwenningen</title>
+<meta name="description" content="Lernen Sie GDS kennen — Ihr lokaler Partner aus Villingen-Schwenningen für professionelle Websites, SEO und digitale Sichtbarkeit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Alex+Brush&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "GDS",
+  "url": "https://gds-vs.de",
+  "email": "kontakt@gds-vs.de",
+  "telephone": "+49-123-456789",
+  "priceRange": "€€",
+  "description": "Webdesign, SEO-Optimierung, Redesign und Wartung für Unternehmen in Villingen-Schwenningen und der Region.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Villingen-Schwenningen",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "areaServed": ["Villingen-Schwenningen", "Schwarzwald-Baar-Kreis", "Donaueschingen", "Rottweil", "Tuttlingen", "Bad Dürrheim", "St. Georgen"]
+}
+</script>
+</head><body>
+
+<!-- ============ WORK IN PROGRESS GATE ============ -->
+<div id="wipGate">
+  <div class="wip-inner">
+    <div class="wip-badge">Work in Progress</div>
+    <div class="wip-title">Diese Seite ist noch nicht live</div>
+    <p class="wip-sub">This page isn't public yet — enter the password to preview it.<br>Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
+    <form id="wipForm" class="wip-form">
+      <input type="password" id="wipPassword" placeholder="Passwort" autocomplete="off" required>
+      <button type="submit">Ansehen</button>
+    </form>
+    <div class="wip-error" id="wipError"></div>
+  </div>
+</div>
+
+<div id="langSplash">
+  <div class="splash-inner">
+    <div class="splash-logo"><span class="splash-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="splash-script">GDS</span></div>
+    <div class="splash-title">Welcome — Willkommen</div>
+    <div class="splash-sub">Choose your language / Wähle deine Sprache</div>
+    <div class="splash-buttons">
+      <button class="splash-btn" data-splash-lang="de">Deutsch<span class="splash-flag">DE</span></button>
+      <button class="splash-btn" data-splash-lang="en">English<span class="splash-flag">EN</span></button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+      <span class="logo-script">GDS</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
+        <li><a href="leistungen.html"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
+        <li><a href="ueber-uns.html" class="active"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
+        <li><a href="kontakt.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switch">
+        <button data-lang="de">DE</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="kontakt.html" class="btn-cta"><span class="lang-de">Erstberatung</span><span class="lang-en">Free Consult</span></a>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="hero" style="padding:80px 0 70px;">
+  <div class="container hero-inner">
+    <div class="eyebrow"><span class="dot"></span>
+      <span class="lang-de">Über uns</span><span class="lang-en">About Us</span>
+    </div>
+    <h1 style="font-size:clamp(30px,4.5vw,46px);">
+      <span class="lang-de">Der Mensch <span class="grad-text">hinter</span> <span class="logo-script" style="font-size:1.2em;">GDS</span></span>
+      <span class="lang-en">The person <span class="grad-text">behind</span> <span class="logo-script" style="font-size:1.2em;">GDS</span></span>
+    </h1>
+    <p class="lead">
+      <span class="lang-de">Digitale Sichtbarkeit sollte kein Zufall sein. Genau dafür steht GDS — Ihr lokales Unternehmen aus Villingen-Schwenningen.</span>
+      <span class="lang-en">Digital visibility shouldn't be a matter of luck. That's exactly what GDS stands for — your local business based in Villingen-Schwenningen.</span>
+    </p>
+  </div>
+  <svg class="hero-illustration hero-illustration--sm" viewBox="0 0 560 560" fill="none" aria-hidden="true">
+    <circle cx="410" cy="170" r="150" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+    <circle cx="460" cy="400" r="95" stroke="#7a7ae0" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <circle cx="90" cy="440" r="60" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+    <line x1="150" y1="80" x2="300" y2="230" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" stroke-dasharray="2 5"/>
+    <line x1="300" y1="230" x2="380" y2="330" stroke="rgba(255,255,255,0.14)" stroke-width="1.2" stroke-dasharray="2 5"/>
+    <circle cx="150" cy="80" r="4" fill="#7a7ae0" fill-opacity="0.8"/>
+    <circle cx="380" cy="330" r="4" fill="#ffffff" fill-opacity="0.6"/>
+    <g transform="translate(265,185)">
+      <circle cx="40" cy="35" r="35" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+      <polygon points="22,62 58,62 40,112" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="40" cy="35" r="13" stroke="#7a7ae0" stroke-opacity="0.6" stroke-width="1.6"/>
+    </g>
+    <g transform="translate(368,340) rotate(-6)">
+      <polygon points="0,34 40,0 80,34" stroke="#7a7ae0" stroke-opacity="0.5" stroke-width="1.6" stroke-linejoin="round"/>
+      <rect x="10" y="34" width="60" height="44" stroke="#7a7ae0" stroke-opacity="0.5" stroke-width="1.6"/>
+      <rect x="33" y="54" width="14" height="24" stroke="rgba(255,255,255,0.3)" stroke-width="1.4"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ ABOUT MAIN ============ -->
+<section class="section-light">
+  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+  </svg>
+  <div class="container about-grid reveal-group">
+    <div class="about-photo">
+      <span><span class="lang-de">Foto folgt</span><span class="lang-en">Photo coming soon</span></span>
+    </div>
+    <div>
+      <div class="kicker"><span class="lang-de">Meine Geschichte</span><span class="lang-en">My Story</span></div>
+      <h2 style="font-size:clamp(24px,3.5vw,32px); font-weight:700; margin-bottom:20px; letter-spacing:-0.5px;">
+        <span class="lang-de">Websites, die Unternehmen wirklich weiterbringen</span>
+        <span class="lang-en">Websites that genuinely move businesses forward</span>
+      </h2>
+      <p style="color:var(--gray-700); margin-bottom:16px;">
+        <span class="lang-de">Hinter GDS steht Gürkan — aus Villingen-Schwenningen, für Villingen-Schwenningen und die Region. Das Ziel: kleinen und mittelständischen Unternehmen vor Ort zu einem professionellen, gut auffindbaren Online-Auftritt zu verhelfen. Statt austauschbarer Baukasten-Websites oder anonymer Großagentur gibt es hier einen persönlichen Ansprechpartner und individuelle Lösungen, die zum jeweiligen Unternehmen passen.</span>
+        <span class="lang-en">GDS is run by Gürkan — based in Villingen-Schwenningen, for Villingen-Schwenningen and the surrounding region. The goal: helping local small and mid-sized businesses get a professional, easy-to-find online presence. Instead of generic template websites or an anonymous big agency, you get a personal point of contact and a tailored solution built around your business.</span>
+      </p>
+      <p style="color:var(--gray-700); margin-bottom:16px;">
+        <span class="lang-de">Der Fokus liegt auf klarem, minimalistischem Design gepaart mit technisch sauberer Umsetzung und durchdachter SEO — damit die Website nicht nur gut aussieht, sondern auch gefunden wird und Kunden überzeugt.</span>
+        <span class="lang-en">The focus is on clean, minimalist design paired with technically solid execution and thoughtful SEO — so the website doesn't just look good, but actually gets found and convinces customers.</span>
+      </p>
+      <p class="placeholder-note">
+        <span class="lang-de">Hinweis: Dieser Text ist ein Platzhalter und kann durch Ihre persönliche Geschichte, Erfahrung und Meilensteine ersetzt werden.</span>
+        <span class="lang-en">Note: This text is a placeholder and can be replaced with your personal story, experience, and milestones.</span>
+      </p>
+
+      <div class="values reveal-group">
+        <div class="value">
+          <h4><span class="lang-de">Transparenz</span><span class="lang-en">Transparency</span></h4>
+          <p><span class="lang-de">Klare Preise, klare Kommunikation — keine versteckten Kosten.</span><span class="lang-en">Clear pricing, clear communication — no hidden costs.</span></p>
+        </div>
+        <div class="value">
+          <h4><span class="lang-de">Individualität</span><span class="lang-en">Individuality</span></h4>
+          <p><span class="lang-de">Jede Website wird auf das jeweilige Unternehmen zugeschnitten.</span><span class="lang-en">Every website is tailored to the specific business.</span></p>
+        </div>
+        <div class="value">
+          <h4><span class="lang-de">Qualität</span><span class="lang-en">Quality</span></h4>
+          <p><span class="lang-de">Sauberer Code, durchdachtes Design, messbare SEO-Ergebnisse.</span><span class="lang-en">Clean code, thoughtful design, measurable SEO results.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="kicker"><span class="lang-de">Mission</span><span class="lang-en">Mission</span></div>
+      <h2><span class="lang-de">Jedes Unternehmen verdient online sichtbar zu sein</span><span class="lang-en">Every business deserves to be visible online</span></h2>
+      <p><span class="lang-de">Gerade lokale und mittelständische Unternehmen haben oft weder Zeit noch Ressourcen, sich intensiv mit Website und SEO zu beschäftigen. Genau da setzt GDS an: verständlich, unkompliziert und mit echtem Ergebnis.</span>
+      <span class="lang-en">Local and mid-sized businesses in particular often lack the time or resources to focus on their website and SEO. That's exactly where GDS comes in: straightforward, uncomplicated, and with real results.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section-light cta-section">
+  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
+    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
+    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
+    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
+  </svg>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2><span class="lang-de">Lernen wir uns kennen</span><span class="lang-en">Let's get to know each other</span></h2>
+      <p><span class="lang-de">In einem kostenlosen Erstgespräch finden wir heraus, wie ich Sie unterstützen kann.</span><span class="lang-en">In a free initial call, we'll find out how I can support you.</span></p>
+      <a href="kontakt.html" class="btn-cta"><span class="lang-de">Kostenlose Erstberatung sichern</span><span class="lang-en">Book a Free Consultation</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3.2 3.2"/><rect x="14" y="15" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.4"/><line x1="18" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="18" y1="24" x2="24" y2="24" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><line x1="24" y1="29" x2="24" y2="32" stroke="currentColor" stroke-width="1.4"/><line x1="19" y1="32" x2="29" y2="32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="logo-script">GDS</span></a>
+        <p><span class="lang-de">Webdesign, SEO-Optimierung, Redesign &amp; Wartung für Unternehmen, die online sichtbar sein wollen.</span><span class="lang-en">Web design, SEO, redesign &amp; maintenance for businesses that want to be seen online.</span></p>
+      </div>
+      <div class="footer-col">
+        <h4><span class="lang-de">Navigation</span><span class="lang-en">Navigation</span></h4>
+        <ul>
+          <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
+          <li><a href="leistungen.html"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
+          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
+          <li><a href="kontakt.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
+        <ul>
+          <li>kontakt@gds-vs.de</li>
+          <li>+49 (0) 123 456 789</li>
+          <li><span class="lang-de">Villingen-Schwenningen</span><span class="lang-en">Villingen-Schwenningen, Germany</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GDS. <span class="lang-de">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></span>
+      <span>Made in Villingen-Schwenningen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
