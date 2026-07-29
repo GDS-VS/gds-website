@@ -173,9 +173,7 @@
         submitBtn.disabled = true;
 
         try {
-          // TODO: Replace with your own Formspree endpoint (https://formspree.io)
-          // Sign up for free, create a form, and paste the endpoint ID below.
-          const endpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+          const endpoint = 'https://formspree.io/f/mdaqjgdn';
           const res = await fetch(endpoint, {
             method: 'POST',
             headers: { Accept: 'application/json' },
