@@ -168,7 +168,7 @@
         e.preventDefault();
         const msg = document.getElementById('formMsg');
         const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
+        const originalHtml = submitBtn.innerHTML;
         submitBtn.textContent = '...';
         submitBtn.disabled = true;
 
@@ -191,7 +191,7 @@
           msg.textContent = msg.dataset.err;
           msg.className = 'form-msg show err';
         } finally {
-          submitBtn.textContent = originalText;
+          submitBtn.innerHTML = originalHtml;
           submitBtn.disabled = false;
         }
       });
