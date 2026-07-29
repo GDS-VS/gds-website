@@ -504,6 +504,7 @@ section { padding: 100px 0; }
 /* ---------- Service cards ---------- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.grid-3.grid-4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
   background: var(--white);
@@ -781,7 +782,7 @@ footer {
   .hero-illustration { display: none; }
 }
 @media (max-width: 900px) {
-  .grid-3, .grid-2, .pricing-grid, .steps { grid-template-columns: 1fr; }
+  .grid-3, .grid-2, .pricing-grid, .steps, .grid-3.grid-4 { grid-template-columns: 1fr; }
   .plan.featured { transform: none; }
   .plan.featured:hover { transform: translateY(-6px); }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
