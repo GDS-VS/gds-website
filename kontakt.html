@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="de" data-lang="de">
+<!DOCTYPE html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,28 +49,12 @@
   <div class="wip-inner">
     <div class="wip-badge">Work in Progress</div>
     <div class="wip-title">Diese Seite ist noch nicht live</div>
-    <p class="wip-sub">This page isn't public yet — enter the password to preview it.<br>Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
+    <p class="wip-sub">Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
     <form id="wipForm" class="wip-form">
       <input type="password" id="wipPassword" placeholder="Passwort" autocomplete="off" required>
       <button type="submit">Ansehen</button>
     </form>
     <div class="wip-error" id="wipError"></div>
-  </div>
-</div>
-
-<div id="langSplash">
-  <div class="splash-inner">
-    <div class="splash-lockup">
-      <div class="splash-logo"><span class="splash-diamond"></span><span class="splash-script">GDS</span><span class="splash-diamond"></span></div>
-      <div class="splash-rule"></div>
-      <div class="splash-tag">WEBDESIGN &amp; SEO</div>
-    </div>
-    <div class="splash-title">Welcome — Willkommen</div>
-    <div class="splash-sub">Choose your language / Wähle deine Sprache</div>
-    <div class="splash-buttons">
-      <button class="splash-btn" data-splash-lang="de">Deutsch<span class="splash-flag">DE</span></button>
-      <button class="splash-btn" data-splash-lang="en">English<span class="splash-flag">EN</span></button>
-    </div>
   </div>
 </div>
 
@@ -83,18 +67,14 @@
     </a>
     <nav class="main-nav" id="mainNav">
       <ul>
-        <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
-        <li><a href="leistungen.html"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
-        <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
-        <li><a href="kontakt.html" class="active"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
       </ul>
     </nav>
     <div class="header-right">
-      <div class="lang-switch">
-        <button data-lang="de">DE</button>
-        <button data-lang="en">EN</button>
-      </div>
-      <a href="kontakt.html" class="btn-cta"><span class="lang-de">Erstberatung</span><span class="lang-en">Free Consult</span></a>
+      <a href="kontakt.html" class="btn-cta">Erstberatung</a>
       <button class="burger" id="burger"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -104,15 +84,13 @@
 <section class="hero" style="padding:80px 0 70px;">
   <div class="container hero-inner">
     <div class="eyebrow"><span class="dot"></span>
-      <span class="lang-de">Kontakt</span><span class="lang-en">Contact</span>
+      Kontakt
     </div>
     <h1 style="font-size:clamp(30px,4.5vw,46px);">
-      <span class="lang-de">Lassen Sie uns <span class="grad-text">sprechen</span></span>
-      <span class="lang-en">Let's <span class="grad-text">talk</span></span>
+      Lassen Sie uns <span class="grad-text">sprechen</span>
     </h1>
     <p class="lead">
-      <span class="lang-de">Erzählen Sie uns kurz von Ihrem Projekt — die kostenlose Erstberatung ist unverbindlich.</span>
-      <span class="lang-en">Tell us a bit about your project — the free initial consultation is non-binding.</span>
+      Erzählen Sie uns kurz von Ihrem Projekt — die kostenlose Erstberatung ist unverbindlich.
     </p>
   </div>
   <svg class="hero-illustration hero-illustration--sm" viewBox="0 0 560 560" fill="none" aria-hidden="true">
@@ -155,39 +133,38 @@
     <!-- Info card -->
     <div class="contact-info-card">
       <h3 style="font-size:20px; font-weight:700; margin-bottom:8px;">
-        <span class="lang-de">Kontaktdaten</span><span class="lang-en">Contact Details</span>
+        Kontaktdaten
       </h3>
       <p style="color:var(--gray-300); font-size:14px; margin-bottom:32px;">
-        <span class="lang-de">Erreichbar per Mail, Telefon oder über das Formular — meist antworten wir innerhalb eines Werktags.</span>
-        <span class="lang-en">Reach us by email, phone, or the form — we usually reply within one business day.</span>
+        Erreichbar per Mail, Telefon oder über das Formular — meist antworten wir innerhalb eines Werktags.
       </p>
 
       <div class="contact-item">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 7 10 6 10-6"></path></svg></div>
         <div>
-          <h4><span class="lang-de">E-Mail</span><span class="lang-en">Email</span></h4>
+          <h4>E-Mail</h4>
           <a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a>
         </div>
       </div>
       <div class="contact-item">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
         <div>
-          <h4><span class="lang-de">Telefon</span><span class="lang-en">Phone</span></h4>
+          <h4>Telefon</h4>
           <a href="tel:+4915118623100">+49 151 186 231 00</a>
         </div>
       </div>
       <div class="contact-item">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
         <div>
-          <h4><span class="lang-de">Kostenlose Erstberatung</span><span class="lang-en">Free Consultation</span></h4>
-          <p><span class="lang-de">Wunschtermin einfach im Formular angeben.</span><span class="lang-en">Just note your preferred time in the form.</span></p>
+          <h4>Kostenlose Erstberatung</h4>
+          <p>Wunschtermin einfach im Formular angeben.</p>
         </div>
       </div>
       <div class="contact-item">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
         <div>
-          <h4><span class="lang-de">Standort</span><span class="lang-en">Location</span></h4>
-          <p><span class="lang-de">Villingen-Schwenningen — persönlich vor Ort in der Region</span><span class="lang-en">Villingen-Schwenningen — personally on-site in the region</span></p>
+          <h4>Standort</h4>
+          <p>Villingen-Schwenningen — persönlich vor Ort in der Region</p>
         </div>
       </div>
     </div>
@@ -197,7 +174,7 @@
       <form id="contactForm">
         <div class="form-row">
           <div class="form-group">
-            <label><span class="lang-de">Name</span><span class="lang-en">Name</span> *</label>
+            <label>Name *</label>
             <input type="text" name="name" required>
           </div>
           <div class="form-group">
@@ -207,34 +184,34 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label><span class="lang-de">Telefon (optional)</span><span class="lang-en">Phone (optional)</span></label>
+            <label>Telefon (optional)</label>
             <input type="tel" name="phone">
           </div>
           <div class="form-group">
-            <label><span class="lang-de">Interessiert an</span><span class="lang-en">Interested in</span></label>
+            <label>Interessiert an</label>
             <select name="service">
-              <option value="Website-Erstellung"><span class="lang-de">Website-Erstellung</span></option>
+              <option value="Website-Erstellung">Website-Erstellung</option>
               <option value="SEO-Optimierung">SEO-Optimierung</option>
               <option value="Redesign">Redesign</option>
               <option value="Wartung">Wartung</option>
-              <option value="Sonstiges"><span class="lang-de">Sonstiges</span></option>
+              <option value="Sonstiges">Sonstiges</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label><span class="lang-de">Wunschtermin für Erstberatung (optional)</span><span class="lang-en">Preferred time for consultation (optional)</span></label>
+          <label>Wunschtermin für Erstberatung (optional)</label>
           <input type="text" name="preferred_time" placeholder="z. B. Dienstag Nachmittag / e.g. Tuesday afternoon">
         </div>
         <div class="form-group">
-          <label><span class="lang-de">Nachricht</span><span class="lang-en">Message</span> *</label>
+          <label>Nachricht *</label>
           <textarea name="message" required placeholder=""></textarea>
         </div>
         <button type="submit" class="btn-cta" style="width:100%; border:none;">
-          <span class="lang-de">Nachricht senden</span><span class="lang-en">Send Message</span>
+          Nachricht senden
         </button>
         <div id="formMsg" class="form-msg"
-             data-ok="Danke! Ihre Nachricht wurde gesendet — wir melden uns in Kürze. / Thanks! Your message was sent — we'll be in touch soon."
-             data-err="Da ist etwas schiefgelaufen. Bitte schreiben Sie uns direkt an kontakt@gds-vs.de. / Something went wrong. Please email us directly at kontakt@gds-vs.de."></div>
+             data-ok="Danke! Ihre Nachricht wurde gesendet — wir melden uns in Kürze."
+             data-err="Da ist etwas schiefgelaufen. Bitte schreiben Sie uns direkt an kontakt@gds-vs.de."></div>
       </form>
     </div>
   </div>
@@ -245,29 +222,29 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="logo-diamond"></span><span class="logo-script">GDS</span><span class="logo-diamond"></span></a>
-        <p><span class="lang-de">Webdesign, SEO-Optimierung, Redesign &amp; Wartung für Unternehmen, die online sichtbar sein wollen.</span><span class="lang-en">Web design, SEO, redesign &amp; maintenance for businesses that want to be seen online.</span></p>
+        <p>Webdesign, SEO-Optimierung, Redesign &amp; Wartung für Unternehmen, die online sichtbar sein wollen.</p>
       </div>
       <div class="footer-col">
-        <h4><span class="lang-de">Navigation</span><span class="lang-en">Navigation</span></h4>
+        <h4>Navigation</h4>
         <ul>
-          <li><a href="index.html"><span class="lang-de">Startseite</span><span class="lang-en">Home</span></a></li>
-          <li><a href="leistungen.html"><span class="lang-de">Leistungen</span><span class="lang-en">Services</span></a></li>
-          <li><a href="ueber-uns.html"><span class="lang-de">Über uns</span><span class="lang-en">About Us</span></a></li>
-          <li><a href="kontakt.html"><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="impressum.html">Impressum</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></h4>
+        <h4>Kontakt</h4>
         <ul>
           <li>kontakt@gds-vs.de</li>
           <li>+49 151 186 231 00</li>
-          <li><span class="lang-de">Villingen-Schwenningen</span><span class="lang-en">Villingen-Schwenningen, Germany</span></li>
+          <li>Villingen-Schwenningen</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 GDS. <span class="lang-de">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></span>
+      <span>© 2026 GDS. Alle Rechte vorbehalten.</span>
       <span>Made in Villingen-Schwenningen</span>
     </div>
   </div>

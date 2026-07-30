@@ -1,11 +1,8 @@
 // ===================================================
-// GDS – Shared script (language, nav, form)
+// GDS – Shared script (nav, form)
 // ===================================================
 
 (function () {
-  const root = document.documentElement;
-  const STORAGE_KEY = 'gk_lang';
-
   // ---- Work-in-progress password gate ----
   const WIP_KEY = 'gds_unlocked';
   const WIP_HASH = '4332cd76590d0efdbd8d067acf531546da2ba0a67c538440e7defedbea48d1dc';
@@ -24,36 +21,6 @@
     hideWipGate();
   }
 
-  function applyLang(lang) {
-    root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang);
-    document.querySelectorAll('.lang-switch button').forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    document.querySelectorAll('.faq-item.open .faq-a').forEach((a) => {
-      a.style.maxHeight = a.scrollHeight + 'px';
-    });
-  }
-
-  function setLang(lang) {
-    localStorage.setItem(STORAGE_KEY, lang);
-    applyLang(lang);
-  }
-
-  function hideSplash() {
-    const splash = document.getElementById('langSplash');
-    if (splash) splash.classList.add('hidden');
-  }
-
-  // Init language on every page load
-  const savedLang = localStorage.getItem(STORAGE_KEY);
-  if (savedLang) {
-    applyLang(savedLang);
-    hideSplash();
-  } else {
-    applyLang('de'); // default while splash is visible
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     // Work-in-progress password gate
     const wipForm = document.getElementById('wipForm');
@@ -67,25 +34,12 @@
           localStorage.setItem(WIP_KEY, 'true');
           hideWipGate();
         } else {
-          error.textContent = 'Falsches Passwort. / Wrong password.';
+          error.textContent = 'Falsches Passwort.';
           input.value = '';
           input.focus();
         }
       });
     }
-
-    // Splash buttons (only present on pages that include the splash markup)
-    document.querySelectorAll('[data-splash-lang]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        setLang(btn.dataset.splashLang);
-        hideSplash();
-      });
-    });
-
-    // Header language switch (DE | EN toggle, always visible after splash)
-    document.querySelectorAll('.lang-switch button').forEach((btn) => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang));
-    });
 
     // Mobile nav toggle
     const burger = document.getElementById('burger');

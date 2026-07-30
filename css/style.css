@@ -71,10 +71,6 @@ button { font-family: inherit; cursor: pointer; }
   pointer-events: none;
 }
 
-/* ---------- Language visibility ---------- */
-html:not([data-lang="en"]) .lang-en { display: none !important; }
-html[data-lang="en"] .lang-de { display: none !important; }
-
 /* ---------- Work-in-progress password gate ---------- */
 #wipGate {
   position: fixed;
@@ -136,78 +132,6 @@ html[data-lang="en"] .lang-de { display: none !important; }
   min-height: 18px;
 }
 
-/* ---------- Splash / language gate ---------- */
-#langSplash {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: var(--navy-surface-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-#langSplash.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.splash-inner {
-  text-align: center;
-  padding: 24px;
-}
-.splash-lockup { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
-.splash-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.splash-rule { width: 180px; height: 2px; background: var(--navy-light); margin: 20px 0 16px; }
-.splash-tag {
-  font-family: var(--font);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: var(--navy-light);
-}
-.splash-title {
-  font-size: clamp(28px, 5vw, 44px);
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 12px;
-}
-.splash-sub {
-  color: var(--gray-500);
-  font-size: 15px;
-  margin-bottom: 48px;
-}
-.splash-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.splash-btn {
-  min-width: 180px;
-  padding: 18px 36px;
-  border: 1px solid var(--gray-700);
-  background: transparent;
-  color: var(--white);
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  border-radius: var(--radius-sm);
-  transition: all 0.25s ease;
-}
-.splash-btn:hover {
-  background: var(--white);
-  color: var(--navy);
-  border-color: transparent;
-  transform: translateY(-2px);
-}
-.splash-flag { font-size: 13px; opacity: 0.6; display: block; margin-top: 4px; }
-
 /* ---------- Header ---------- */
 header.site-header {
   position: sticky;
@@ -243,13 +167,7 @@ header.site-header * { transition: color 0.25s ease, background-color 0.25s ease
   transform: rotate(45deg);
   flex-shrink: 0;
 }
-.splash-diamond {
-  width: 10px; height: 10px;
-  background: var(--navy-light);
-  transform: rotate(45deg);
-  flex-shrink: 0;
-}
-.logo-script, .splash-script {
+.logo-script {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
   font-weight: 700;
   line-height: 1;
@@ -261,9 +179,9 @@ header.site-header * { transition: color 0.25s ease, background-color 0.25s ease
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: gdsShimmer 9s ease-in-out infinite;
+  font-size: 26px;
+  letter-spacing: 1px;
 }
-.logo-script { font-size: 26px; letter-spacing: 1px; }
-.splash-script { font-size: 68px; letter-spacing: 2px; }
 header.site-header.on-light .logo-script {
   background-image: linear-gradient(90deg, #191970 0%, #7a7ae0 35%, #191970 70%, #7a7ae0 100%);
 }
@@ -272,7 +190,7 @@ header.site-header.on-light .logo-script {
   50% { background-position: 100% 50%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .logo-script, .splash-script { animation: none; }
+  .logo-script { animation: none; }
 }
 
 nav.main-nav ul {
@@ -303,32 +221,6 @@ header.site-header.on-light nav.main-nav a.active { color: var(--navy); }
 header.site-header.on-light nav.main-nav a.active::after { background: var(--navy); }
 
 .header-right { display: flex; align-items: center; gap: 22px; }
-
-.lang-switch {
-  display: flex;
-  border: 1px solid var(--gray-700);
-  border-radius: 30px;
-  overflow: hidden;
-}
-header.site-header.on-light .lang-switch { border-color: var(--gray-300); }
-.lang-switch button {
-  border: none;
-  background: transparent;
-  color: var(--gray-300);
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 7px 14px;
-  transition: all 0.2s ease;
-}
-header.site-header.on-light .lang-switch button { color: var(--gray-700); }
-.lang-switch button.active {
-  background: var(--white);
-  color: var(--navy);
-}
-header.site-header.on-light .lang-switch button.active {
-  background: var(--navy);
-  color: var(--white);
-}
 
 .btn-cta {
   background: var(--navy-light);
