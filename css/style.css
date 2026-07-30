@@ -156,20 +156,20 @@ html[data-lang="en"] .lang-de { display: none !important; }
   text-align: center;
   padding: 24px;
 }
+.splash-lockup { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
 .splash-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 16px;
 }
-.splash-icon { width: 56px; height: 56px; flex-shrink: 0; }
-.splash-icon svg { width: 100%; height: 100%; color: var(--white); }
-.splash-script {
-  font-family: 'Alex Brush', cursive;
-  font-size: 72px;
-  line-height: 1;
-  color: var(--white);
+.splash-rule { width: 180px; height: 2px; background: var(--navy-light); margin: 20px 0 16px; }
+.splash-tag {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--navy-light);
 }
 .splash-title {
   font-size: clamp(28px, 5vw, 44px);
@@ -235,20 +235,45 @@ header.site-header * { transition: color 0.25s ease, background-color 0.25s ease
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
-.logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
-.logo-icon svg { width: 100%; height: 100%; color: var(--white); }
-header.site-header.on-light .logo-icon svg { color: var(--navy); }
-.logo-script {
-  font-family: 'Alex Brush', cursive;
-  font-size: 34px;
+.logo-diamond {
+  width: 6px; height: 6px;
+  background: var(--navy-light);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.splash-diamond {
+  width: 10px; height: 10px;
+  background: var(--navy-light);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.logo-script, .splash-script {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
   line-height: 1;
-  color: var(--white);
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffffff 0%, #7a7ae0 35%, #ffffff 70%, #7a7ae0 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gdsShimmer 9s ease-in-out infinite;
 }
-header.site-header.on-light .logo-script { color: var(--navy); }
+.logo-script { font-size: 26px; letter-spacing: 1px; }
+.splash-script { font-size: 68px; letter-spacing: 2px; }
+header.site-header.on-light .logo-script {
+  background-image: linear-gradient(90deg, #191970 0%, #7a7ae0 35%, #191970 70%, #7a7ae0 100%);
+}
+@keyframes gdsShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-script, .splash-script { animation: none; }
+}
 
 nav.main-nav ul {
   display: flex;
