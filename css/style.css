@@ -888,6 +888,12 @@ footer {
   nav.main-nav.open { transform: translateX(0); }
   nav.main-nav ul { flex-direction: column; align-items: flex-start; gap: 26px; }
   nav.main-nav a { font-size: 20px; }
+  /* the mobile drawer is always a dark navy overlay, regardless of scroll
+     position, so it must ignore the header's light/dark contrast switching */
+  header.site-header.on-light nav.main-nav a { color: var(--gray-300); }
+  header.site-header.on-light nav.main-nav a:hover,
+  header.site-header.on-light nav.main-nav a.active { color: var(--white); }
+  header.site-header.on-light nav.main-nav a.active::after { background: var(--white); }
   .header-right .btn-cta { display: none; }
   .burger { display: block; }
   .hero { padding: 90px 0 70px; }
