@@ -1,0 +1,10 @@
+# Site is still in a private Work-in-Progress phase (password gate + noindex).
+# When ready to launch, replace the block below with:
+#
+# User-agent: *
+# Allow: /
+#
+# Sitemap: https://gds-vs.de/sitemap.xml
+
+User-agent: *
+Disallow: /
