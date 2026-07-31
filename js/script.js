@@ -43,44 +43,43 @@
         }))
         .filter((s) => s.text.length > 0);
 
-      // reserve the final rendered height/width up front so the layout
-      // below (paragraph, buttons, stats) never shifts while typing
-      const rect = el.getBoundingClientRect();
-      el.style.minHeight = rect.height + 'px';
-      el.style.minWidth = rect.width + 'px';
-
-      const nodes = segments.map((seg) => {
-        let node;
-        if (seg.grad) {
-          node = document.createElement('span');
-          node.className = 'grad-text';
-        } else {
-          node = document.createTextNode('');
-        }
-        return node;
-      });
+      // Build the full final text up front (all characters present, just
+      // invisible) so line-wrapping is computed once against the complete
+      // content — nothing reflows or jumps between lines as characters
+      // are revealed, unlike incrementally growing the text.
       el.textContent = '';
-      nodes.forEach((n) => el.appendChild(n));
+      const charSpans = [];
+      segments.forEach((seg) => {
+        const host = seg.grad
+          ? (() => {
+              const span = document.createElement('span');
+              span.className = 'grad-text';
+              el.appendChild(span);
+              return span;
+            })()
+          : el;
+        [...seg.text].forEach((ch) => {
+          const cspan = document.createElement('span');
+          cspan.textContent = ch;
+          cspan.style.visibility = 'hidden';
+          host.appendChild(cspan);
+          charSpans.push(cspan);
+        });
+      });
 
-      const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
+      const totalChars = charSpans.length;
       const charDelay = 65;
       const start = performance.now();
 
       const frame = (now) => {
         const shown = Math.floor((now - start) / charDelay);
-        let remaining = shown;
-        segments.forEach((seg, i) => {
-          const count = Math.max(0, Math.min(seg.text.length, remaining));
-          const desired = seg.text.slice(0, count);
-          if (nodes[i].textContent !== desired) nodes[i].textContent = desired;
-          remaining -= seg.text.length;
-        });
+        for (let i = 0; i < totalChars; i++) {
+          charSpans[i].style.visibility = i < shown ? 'visible' : 'hidden';
+        }
         if (shown < totalChars) {
           requestAnimationFrame(frame);
         } else {
-          segments.forEach((seg, i) => { nodes[i].textContent = seg.text; });
-          el.style.minHeight = '';
-          el.style.minWidth = '';
+          charSpans.forEach((s) => { s.style.visibility = 'visible'; });
           if (onDone) onDone();
         }
       };
