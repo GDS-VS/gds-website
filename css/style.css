@@ -661,12 +661,19 @@ section { padding: 100px 0; }
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -1px;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--gray-300);
   margin-bottom: 16px;
   display: block;
+  background: linear-gradient(90deg, #ffffff 0%, #7a7ae0 35%, #ffffff 70%, #7a7ae0 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gdsShimmer 9s ease-in-out infinite;
 }
-.section-dark .step .num { -webkit-text-stroke: 1.5px var(--gray-500); }
+@media (prefers-reduced-motion: reduce) {
+  .step .num { animation: none; }
+}
 .step h4 { font-size: 16.5px; font-weight: 600; margin-bottom: 8px; }
 .step p { font-size: 14px; color: var(--gray-700); }
 .section-dark .step p { color: var(--gray-300); }
