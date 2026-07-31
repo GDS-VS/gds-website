@@ -17,11 +17,130 @@
     if (gate) gate.classList.add('hidden');
   }
 
-  if (localStorage.getItem(WIP_KEY) === 'true') {
+  const alreadyUnlocked = localStorage.getItem(WIP_KEY) === 'true';
+  if (alreadyUnlocked) {
     hideWipGate();
   }
 
+  // ---- Homepage hero intro: typewriter headline + stat count-up/scramble ----
+  // Only actually starts once the hero is visible (i.e. not hidden behind the
+  // WIP gate), otherwise it would play out unseen while the gate is up and
+  // look "finished" the moment someone unlocks it.
+  let heroIntroStarted = false;
+  function startHeroIntro() {
+    if (heroIntroStarted) return;
+    heroIntroStarted = true;
+
+    const heroStats = document.querySelector('.hero-stats');
+    const heroH1 = document.querySelector('.hero h1');
+    if (!heroStats || !heroH1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const typeHeadline = (el, onDone) => {
+      const segments = [...el.childNodes]
+        .map((n) => ({
+          text: n.textContent.replace(/\s+/g, ' '),
+          grad: n.nodeType === 1 && n.classList.contains('grad-text'),
+        }))
+        .filter((s) => s.text.length > 0);
+
+      // reserve the final rendered height/width up front so the layout
+      // below (paragraph, buttons, stats) never shifts while typing
+      const rect = el.getBoundingClientRect();
+      el.style.minHeight = rect.height + 'px';
+      el.style.minWidth = rect.width + 'px';
+
+      const nodes = segments.map((seg) => {
+        let node;
+        if (seg.grad) {
+          node = document.createElement('span');
+          node.className = 'grad-text';
+        } else {
+          node = document.createTextNode('');
+        }
+        return node;
+      });
+      el.textContent = '';
+      nodes.forEach((n) => el.appendChild(n));
+
+      const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
+      const charDelay = 65;
+      const start = performance.now();
+
+      const frame = (now) => {
+        const shown = Math.floor((now - start) / charDelay);
+        let remaining = shown;
+        segments.forEach((seg, i) => {
+          const count = Math.max(0, Math.min(seg.text.length, remaining));
+          const desired = seg.text.slice(0, count);
+          if (nodes[i].textContent !== desired) nodes[i].textContent = desired;
+          remaining -= seg.text.length;
+        });
+        if (shown < totalChars) {
+          requestAnimationFrame(frame);
+        } else {
+          segments.forEach((seg, i) => { nodes[i].textContent = seg.text; });
+          el.style.minHeight = '';
+          el.style.minWidth = '';
+          if (onDone) onDone();
+        }
+      };
+      requestAnimationFrame(frame);
+    };
+
+    const countBetween = (el, from, target, suffix, duration) => {
+      const start = performance.now();
+      const frame = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (target - from) * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(frame);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(frame);
+    };
+
+    const scrambleText = (el, finalText, duration) => {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const start = performance.now();
+      const frame = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        if (progress < 1) {
+          let out = '';
+          for (let i = 0; i < finalText.length; i++) out += chars[(Math.random() * chars.length) | 0];
+          el.textContent = out;
+          requestAnimationFrame(frame);
+        } else {
+          el.textContent = finalText;
+        }
+      };
+      requestAnimationFrame(frame);
+    };
+
+    const animateStats = () => {
+      heroStats.querySelectorAll('.stat').forEach((statEl) => {
+        const el = statEl.querySelector('b');
+        const target = el.textContent.trim();
+        const label = statEl.textContent.replace(target, '');
+        const match = target.match(/^(\d+)(%?)$/);
+        if (match) {
+          const targetNum = parseInt(match[1], 10);
+          const isAnsprechpartner = /Ansprechpartner/i.test(label);
+          const isKernleistungen = /Kernleistungen/i.test(label);
+          const from = isAnsprechpartner ? 10 : 0;
+          const duration = isKernleistungen ? 2200 : 1400;
+          countBetween(el, from, targetNum, match[2], duration);
+        } else {
+          scrambleText(el, target, 1100);
+        }
+      });
+    };
+
+    typeHeadline(heroH1, () => setTimeout(animateStats, 300));
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
+    if (alreadyUnlocked) startHeroIntro();
+
     // Work-in-progress password gate
     const wipForm = document.getElementById('wipForm');
     if (wipForm) {
@@ -33,6 +152,7 @@
         if (hash === WIP_HASH) {
           localStorage.setItem(WIP_KEY, 'true');
           hideWipGate();
+          startHeroIntro();
         } else {
           error.textContent = 'Falsches Passwort.';
           input.value = '';
@@ -136,106 +256,6 @@
         a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : '0px';
       });
     });
-
-    // Homepage hero intro: typewriter headline + stat count-up/scramble
-    const heroStats = document.querySelector('.hero-stats');
-    const heroH1 = document.querySelector('.hero h1');
-    if (heroStats && heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const typeHeadline = (el, onDone) => {
-        const segments = [...el.childNodes]
-          .map((n) => ({
-            text: n.textContent.replace(/\s+/g, ' '),
-            grad: n.nodeType === 1 && n.classList.contains('grad-text'),
-          }))
-          .filter((s) => s.text.length > 0);
-
-        // reserve the final rendered height/width up front so the layout
-        // below (paragraph, buttons, stats) never shifts while typing
-        const rect = el.getBoundingClientRect();
-        el.style.minHeight = rect.height + 'px';
-        el.style.minWidth = rect.width + 'px';
-
-        const nodes = segments.map((seg) => {
-          let node;
-          if (seg.grad) {
-            node = document.createElement('span');
-            node.className = 'grad-text';
-          } else {
-            node = document.createTextNode('');
-          }
-          return node;
-        });
-        el.textContent = '';
-        nodes.forEach((n) => el.appendChild(n));
-
-        const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
-        const charDelay = 55;
-        const start = performance.now();
-
-        const frame = (now) => {
-          const shown = Math.floor((now - start) / charDelay);
-          let remaining = shown;
-          segments.forEach((seg, i) => {
-            const count = Math.max(0, Math.min(seg.text.length, remaining));
-            const desired = seg.text.slice(0, count);
-            if (nodes[i].textContent !== desired) nodes[i].textContent = desired;
-            remaining -= seg.text.length;
-          });
-          if (shown < totalChars) {
-            requestAnimationFrame(frame);
-          } else {
-            segments.forEach((seg, i) => { nodes[i].textContent = seg.text; });
-            el.style.minHeight = '';
-            el.style.minWidth = '';
-            if (onDone) onDone();
-          }
-        };
-        requestAnimationFrame(frame);
-      };
-
-      const countUp = (el, target, suffix, duration) => {
-        const start = performance.now();
-        const frame = (now) => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(target * eased) + suffix;
-          if (progress < 1) requestAnimationFrame(frame);
-          else el.textContent = target + suffix;
-        };
-        requestAnimationFrame(frame);
-      };
-
-      const scrambleText = (el, finalText, duration) => {
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const start = performance.now();
-        const frame = (now) => {
-          const progress = Math.min((now - start) / duration, 1);
-          if (progress < 1) {
-            let out = '';
-            for (let i = 0; i < finalText.length; i++) out += chars[(Math.random() * chars.length) | 0];
-            el.textContent = out;
-            requestAnimationFrame(frame);
-          } else {
-            el.textContent = finalText;
-          }
-        };
-        requestAnimationFrame(frame);
-      };
-
-      const animateStats = () => {
-        heroStats.querySelectorAll('.stat b').forEach((el) => {
-          const target = el.textContent.trim();
-          const match = target.match(/^(\d+)(%?)$/);
-          if (match) {
-            countUp(el, parseInt(match[1], 10), match[2], 1400);
-          } else {
-            scrambleText(el, target, 1100);
-          }
-        });
-      };
-
-      typeHeadline(heroH1, () => setTimeout(animateStats, 300));
-    }
 
     // Contact form submission
     const form = document.getElementById('contactForm');
