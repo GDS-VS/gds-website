@@ -115,26 +115,58 @@
       requestAnimationFrame(frame);
     };
 
-    const animateStats = () => {
-      heroStats.querySelectorAll('.stat').forEach((statEl) => {
-        const el = statEl.querySelector('b');
-        const target = el.textContent.trim();
-        const label = statEl.textContent.replace(target, '');
-        const match = target.match(/^(\d+)(%?)$/);
-        if (match) {
-          const targetNum = parseInt(match[1], 10);
-          const isAnsprechpartner = /Ansprechpartner/i.test(label);
-          const isKernleistungen = /Kernleistungen/i.test(label);
-          const from = isAnsprechpartner ? 10 : 0;
-          const duration = isKernleistungen ? 2200 : 1400;
-          countBetween(el, from, targetNum, match[2], duration);
+    // Capture each stat's final value up front, then keep it randomly
+    // "spinning" (like a slot machine) for as long as the headline is still
+    // typing, so both effects visibly run together instead of one waiting
+    // for the other. Once typing finishes, every stat settles into place.
+    const spinChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const statMeta = [...heroStats.querySelectorAll('.stat')].map((statEl) => {
+      const el = statEl.querySelector('b');
+      const target = el.textContent.trim();
+      const label = statEl.textContent.replace(target, '');
+      const match = target.match(/^(\d+)(%?)$/);
+      if (match) {
+        const targetNum = parseInt(match[1], 10);
+        const isAnsprechpartner = /Ansprechpartner/i.test(label);
+        const isKernleistungen = /Kernleistungen/i.test(label);
+        return {
+          el,
+          isNumber: true,
+          suffix: match[2],
+          target: targetNum,
+          from: isAnsprechpartner ? 10 : 0,
+          duration: isKernleistungen ? 2200 : 1400,
+        };
+      }
+      return { el, isNumber: false, target, length: target.length };
+    });
+
+    let spinning = true;
+    const spin = () => {
+      if (!spinning) return;
+      statMeta.forEach((s) => {
+        if (s.isNumber) {
+          const max = s.suffix === '%' ? 100 : 12;
+          s.el.textContent = Math.floor(Math.random() * (max + 1)) + s.suffix;
         } else {
-          scrambleText(el, target, 1100);
+          let out = '';
+          for (let i = 0; i < s.length; i++) out += spinChars[(Math.random() * spinChars.length) | 0];
+          s.el.textContent = out;
         }
       });
+      setTimeout(spin, 70);
     };
+    spin();
 
-    typeHeadline(heroH1, () => setTimeout(animateStats, 300));
+    typeHeadline(heroH1, () => {
+      spinning = false;
+      setTimeout(() => {
+        statMeta.forEach((s) => {
+          if (s.isNumber) countBetween(s.el, s.from, s.target, s.suffix, s.duration);
+          else scrambleText(s.el, s.target, 700);
+        });
+      }, 100);
+    });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
