@@ -137,6 +137,92 @@
       });
     });
 
+    // Homepage hero intro: typewriter headline + stat count-up/scramble
+    const heroStats = document.querySelector('.hero-stats');
+    const heroH1 = document.querySelector('.hero h1');
+    if (heroStats && heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const typeHeadline = (el, onDone) => {
+        const segments = [...el.childNodes]
+          .map((n) => ({
+            text: n.textContent.replace(/\s+/g, ' '),
+            grad: n.nodeType === 1 && n.classList.contains('grad-text'),
+          }))
+          .filter((s) => s.text.length > 0);
+        el.textContent = '';
+        let segIdx = 0;
+        let charIdx = 0;
+        let node = null;
+        const step = () => {
+          if (segIdx >= segments.length) {
+            if (onDone) onDone();
+            return;
+          }
+          const seg = segments[segIdx];
+          if (charIdx === 0) {
+            if (seg.grad) {
+              node = document.createElement('span');
+              node.className = 'grad-text';
+              el.appendChild(node);
+            } else {
+              node = document.createTextNode('');
+              el.appendChild(node);
+            }
+          }
+          node.textContent += seg.text[charIdx];
+          charIdx++;
+          if (charIdx >= seg.text.length) {
+            segIdx++;
+            charIdx = 0;
+          }
+          setTimeout(step, 26);
+        };
+        step();
+      };
+
+      const countUp = (el, target, suffix, duration) => {
+        const start = performance.now();
+        const frame = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (progress < 1) requestAnimationFrame(frame);
+          else el.textContent = target + suffix;
+        };
+        requestAnimationFrame(frame);
+      };
+
+      const scrambleText = (el, finalText, duration) => {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const start = performance.now();
+        const frame = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          if (progress < 1) {
+            let out = '';
+            for (let i = 0; i < finalText.length; i++) out += chars[(Math.random() * chars.length) | 0];
+            el.textContent = out;
+            requestAnimationFrame(frame);
+          } else {
+            el.textContent = finalText;
+          }
+        };
+        requestAnimationFrame(frame);
+      };
+
+      const animateStats = () => {
+        heroStats.querySelectorAll('.stat b').forEach((el) => {
+          const target = el.textContent.trim();
+          const match = target.match(/^(\d+)(%?)$/);
+          if (match) {
+            countUp(el, parseInt(match[1], 10), match[2], 900);
+          } else {
+            scrambleText(el, target, 650);
+          }
+        });
+      };
+
+      typeHeadline(heroH1, () => setTimeout(animateStats, 150));
+    }
+
     // Contact form submission
     const form = document.getElementById('contactForm');
     if (form) {
