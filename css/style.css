@@ -339,7 +339,7 @@ header.site-header.on-light .burger span { background: var(--navy); }
   margin-top: 56px;
   flex-wrap: wrap;
 }
-.stat b { display: block; font-size: 28px; color: var(--white); }
+.stat b { display: block; font-size: 28px; color: var(--white); min-width: 4ch; }
 .stat span { font-size: 13px; color: var(--gray-500); }
 
 /* ---------- Service area strip ---------- */
