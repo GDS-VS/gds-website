@@ -148,35 +148,49 @@
             grad: n.nodeType === 1 && n.classList.contains('grad-text'),
           }))
           .filter((s) => s.text.length > 0);
+
+        // reserve the final rendered height/width up front so the layout
+        // below (paragraph, buttons, stats) never shifts while typing
+        const rect = el.getBoundingClientRect();
+        el.style.minHeight = rect.height + 'px';
+        el.style.minWidth = rect.width + 'px';
+
+        const nodes = segments.map((seg) => {
+          let node;
+          if (seg.grad) {
+            node = document.createElement('span');
+            node.className = 'grad-text';
+          } else {
+            node = document.createTextNode('');
+          }
+          return node;
+        });
         el.textContent = '';
-        let segIdx = 0;
-        let charIdx = 0;
-        let node = null;
-        const step = () => {
-          if (segIdx >= segments.length) {
+        nodes.forEach((n) => el.appendChild(n));
+
+        const totalChars = segments.reduce((sum, s) => sum + s.text.length, 0);
+        const charDelay = 55;
+        const start = performance.now();
+
+        const frame = (now) => {
+          const shown = Math.floor((now - start) / charDelay);
+          let remaining = shown;
+          segments.forEach((seg, i) => {
+            const count = Math.max(0, Math.min(seg.text.length, remaining));
+            const desired = seg.text.slice(0, count);
+            if (nodes[i].textContent !== desired) nodes[i].textContent = desired;
+            remaining -= seg.text.length;
+          });
+          if (shown < totalChars) {
+            requestAnimationFrame(frame);
+          } else {
+            segments.forEach((seg, i) => { nodes[i].textContent = seg.text; });
+            el.style.minHeight = '';
+            el.style.minWidth = '';
             if (onDone) onDone();
-            return;
           }
-          const seg = segments[segIdx];
-          if (charIdx === 0) {
-            if (seg.grad) {
-              node = document.createElement('span');
-              node.className = 'grad-text';
-              el.appendChild(node);
-            } else {
-              node = document.createTextNode('');
-              el.appendChild(node);
-            }
-          }
-          node.textContent += seg.text[charIdx];
-          charIdx++;
-          if (charIdx >= seg.text.length) {
-            segIdx++;
-            charIdx = 0;
-          }
-          setTimeout(step, 55);
         };
-        step();
+        requestAnimationFrame(frame);
       };
 
       const countUp = (el, target, suffix, duration) => {
