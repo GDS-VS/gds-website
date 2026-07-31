@@ -174,7 +174,7 @@
             segIdx++;
             charIdx = 0;
           }
-          setTimeout(step, 26);
+          setTimeout(step, 55);
         };
         step();
       };
@@ -213,14 +213,14 @@
           const target = el.textContent.trim();
           const match = target.match(/^(\d+)(%?)$/);
           if (match) {
-            countUp(el, parseInt(match[1], 10), match[2], 900);
+            countUp(el, parseInt(match[1], 10), match[2], 1400);
           } else {
-            scrambleText(el, target, 650);
+            scrambleText(el, target, 1100);
           }
         });
       };
 
-      typeHeadline(heroH1, () => setTimeout(animateStats, 150));
+      typeHeadline(heroH1, () => setTimeout(animateStats, 300));
     }
 
     // Contact form submission
