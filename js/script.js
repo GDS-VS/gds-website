@@ -141,6 +141,18 @@
       return { el, isNumber: false, target, length: target.length };
     });
 
+    // Lock each number/letters element to the widest width it will ever
+    // need (spin values + final value), so the differing digit/letter
+    // count never shifts the following stats in the flex row.
+    statMeta.forEach((s) => {
+      const probe = s.isNumber ? (s.suffix === '%' ? '100%' : '12') : 'W'.repeat(s.length);
+      const original = s.el.textContent;
+      s.el.textContent = probe;
+      const w = s.el.getBoundingClientRect().width;
+      s.el.textContent = original;
+      s.el.style.minWidth = Math.ceil(w) + 'px';
+    });
+
     let spinning = true;
     const spin = () => {
       if (!spinning) return;
