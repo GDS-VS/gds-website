@@ -335,8 +335,8 @@ header.site-header.on-light .burger span { background: var(--navy); }
 
 .hero-stats {
   display: flex;
-  gap: 48px;
-  margin-top: 72px;
+  gap: 28px;
+  margin-top: 56px;
   flex-wrap: wrap;
 }
 .stat b { display: block; font-size: 28px; color: var(--white); }
