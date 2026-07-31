@@ -498,16 +498,29 @@ section { padding: 100px 0; }
 }
 .faq-num {
   font-family: 'Space Grotesk', var(--font);
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  color: transparent;
-  -webkit-text-stroke: 1.2px var(--gray-300);
   flex-shrink: 0;
-  width: 30px;
-  transition: -webkit-text-stroke-color 0.25s ease;
+  width: 34px;
+  display: inline-block;
+  background: linear-gradient(90deg, #191970 0%, #7a7ae0 35%, #191970 70%, #7a7ae0 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gdsShimmer 9s ease-in-out infinite;
 }
-.faq-item.open .faq-num { -webkit-text-stroke-color: var(--navy-light); }
+.faq-item.open .faq-num {
+  animation: none;
+  background-image: none;
+  -webkit-text-fill-color: var(--navy-light);
+  color: var(--navy-light);
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-num { animation: none; }
+}
 .faq-q-text { flex: 1; font-size: 16px; font-weight: 600; color: var(--charcoal); line-height: 1.4; }
 .faq-icon {
   flex-shrink: 0;
