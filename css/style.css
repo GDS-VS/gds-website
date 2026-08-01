@@ -870,3 +870,43 @@ footer {
   .cta-banner { padding: 44px 24px; }
   .container { padding: 0 20px; }
 }
+
+/* ---------- Reusable animated gradient heading (same shimmer as logo/kicker) ---------- */
+.shimmer-heading {
+  display: inline-block;
+  background: linear-gradient(90deg, #191970 0%, #7a7ae0 35%, #191970 70%, #7a7ae0 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gdsShimmer 9s ease-in-out infinite;
+}
+.section-dark .shimmer-heading {
+  background-image: linear-gradient(90deg, #ffffff 0%, #7a7ae0 35%, #ffffff 70%, #7a7ae0 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-heading { animation: none; }
+}
+
+/* ---------- Referenzen: "coming soon" ---------- */
+.ref-construction {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.ref-icon { width: 140px; height: 140px; display: block; margin: 0 auto 32px; }
+.ref-ring { transform-origin: 80px 80px; animation: refSpin 14s linear infinite; }
+@keyframes refSpin { to { transform: rotate(360deg); } }
+.ref-pulse { transform-origin: 122px 46px; animation: refPulse 2.4s ease-in-out infinite; }
+@keyframes refPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ref-ring, .ref-pulse { animation: none; }
+}
+.ref-construction h2 { margin-bottom: 16px; }
+.ref-construction p { color: var(--gray-700); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px; }
