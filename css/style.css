@@ -234,12 +234,9 @@ header.site-header.on-light nav.main-nav a.active::after { background: var(--nav
   white-space: nowrap;
   border: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
 }
 .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,255,255,0.15); }
-.btn-cta svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 .btn-outline {
   border: 1px solid var(--gray-700);
@@ -913,75 +910,3 @@ footer {
 }
 .ref-construction h2 { margin-bottom: 16px; }
 .ref-construction p { color: var(--gray-700); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px; }
-
-/* ---------- Cinematic CTA (Kontakt page) ---------- */
-.cinematic-cta { position: relative; overflow: hidden; padding: 110px 0; }
-.cinematic-cta::before,
-.cinematic-cta::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: 0;
-}
-.cinematic-cta::before {
-  width: 420px; height: 420px;
-  background: var(--navy-light);
-  opacity: 0.35;
-  top: -12%; left: 8%;
-  animation: ctaFloat1 16s ease-in-out infinite;
-}
-.cinematic-cta::after {
-  width: 360px; height: 360px;
-  background: #4b4bb8;
-  opacity: 0.3;
-  bottom: -14%; right: 10%;
-  animation: ctaFloat2 18s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .cinematic-cta::before, .cinematic-cta::after { animation: none; }
-}
-.cinematic-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; text-align: center; }
-.cinematic-inner p { color: var(--gray-300); font-size: 16.5px; margin-bottom: 36px; }
-.cinematic-actions { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
-.cinematic-actions .btn-cta { border-radius: 999px; padding: 13px 28px; }
-
-.btn-glass {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 28px;
-  border-radius: 999px;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-.btn-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.15) 25%,
-    rgba(255, 255, 255, 0) 45%,
-    rgba(255, 255, 255, 0) 55%,
-    rgba(255, 255, 255, 0.15) 75%,
-    rgba(255, 255, 255, 0.5) 100%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-.btn-glass:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
-.btn-glass svg { width: 17px; height: 17px; flex-shrink: 0; }
