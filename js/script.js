@@ -22,7 +22,7 @@
     hideWipGate();
   }
 
-  // ---- Homepage hero intro: typewriter headline + stat count-up/scramble ----
+  // ---- Homepage hero intro: calm stat entrance + rotating headline phrase ----
   // Only actually starts once the hero is visible (i.e. not hidden behind the
   // WIP gate), otherwise it would play out unseen while the gate is up and
   // look "finished" the moment someone unlocks it.
@@ -32,153 +32,32 @@
     heroIntroStarted = true;
 
     const heroStats = document.querySelector('.hero-stats');
-    const heroH1 = document.querySelector('.hero h1');
-    if (!heroStats || !heroH1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const phraseWrap = document.querySelector('.hero-phrase');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const typeHeadline = (el, onDone) => {
-      const segments = [...el.childNodes]
-        .map((n) => ({
-          text: n.textContent.replace(/\s+/g, ' '),
-          grad: n.nodeType === 1 && n.classList.contains('grad-text'),
-        }))
-        .filter((s) => s.text.length > 0);
+    if (heroStats) {
+      requestAnimationFrame(() => heroStats.classList.add('is-visible'));
+    }
 
-      // Build the full final text up front (all characters present, just
-      // invisible) so line-wrapping is computed once against the complete
-      // content — nothing reflows or jumps between lines as characters
-      // are revealed, unlike incrementally growing the text.
-      el.textContent = '';
-      const charSpans = [];
-      segments.forEach((seg) => {
-        const host = seg.grad
-          ? (() => {
-              const span = document.createElement('span');
-              span.className = 'grad-text';
-              el.appendChild(span);
-              return span;
-            })()
-          : el;
-        [...seg.text].forEach((ch) => {
-          const cspan = document.createElement('span');
-          cspan.textContent = ch;
-          cspan.style.visibility = 'hidden';
-          host.appendChild(cspan);
-          charSpans.push(cspan);
-        });
-      });
-
-      const totalChars = charSpans.length;
-      const charDelay = 65;
-      const start = performance.now();
-
-      const frame = (now) => {
-        const shown = Math.floor((now - start) / charDelay);
-        for (let i = 0; i < totalChars; i++) {
-          charSpans[i].style.visibility = i < shown ? 'visible' : 'hidden';
-        }
-        if (shown < totalChars) {
-          requestAnimationFrame(frame);
-        } else {
-          charSpans.forEach((s) => { s.style.visibility = 'visible'; });
-          if (onDone) onDone();
-        }
-      };
-      requestAnimationFrame(frame);
-    };
-
-    const countBetween = (el, from, target, suffix, duration) => {
-      const start = performance.now();
-      const frame = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(from + (target - from) * eased) + suffix;
-        if (progress < 1) requestAnimationFrame(frame);
-        else el.textContent = target + suffix;
-      };
-      requestAnimationFrame(frame);
-    };
-
-    const scrambleText = (el, finalText, duration) => {
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      const start = performance.now();
-      const frame = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        if (progress < 1) {
-          let out = '';
-          for (let i = 0; i < finalText.length; i++) out += chars[(Math.random() * chars.length) | 0];
-          el.textContent = out;
-          requestAnimationFrame(frame);
-        } else {
-          el.textContent = finalText;
-        }
-      };
-      requestAnimationFrame(frame);
-    };
-
-    // Capture each stat's final value up front, then keep it randomly
-    // "spinning" (like a slot machine) for as long as the headline is still
-    // typing, so both effects visibly run together instead of one waiting
-    // for the other. Once typing finishes, every stat settles into place.
-    const spinChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const statMeta = [...heroStats.querySelectorAll('.stat')].map((statEl) => {
-      const el = statEl.querySelector('b');
-      const target = el.textContent.trim();
-      const label = statEl.textContent.replace(target, '');
-      const match = target.match(/^(\d+)(%?)$/);
-      if (match) {
-        const targetNum = parseInt(match[1], 10);
-        const isAnsprechpartner = /Ansprechpartner/i.test(label);
-        const isKernleistungen = /Kernleistungen/i.test(label);
-        return {
-          el,
-          isNumber: true,
-          suffix: match[2],
-          target: targetNum,
-          from: isAnsprechpartner ? 10 : 0,
-          duration: isKernleistungen ? 2200 : 1400,
+    if (phraseWrap && !reduceMotion) {
+      const items = [...phraseWrap.querySelectorAll('.hero-phrase-item')];
+      if (items.length > 1) {
+        let idx = Math.max(0, items.findIndex((el) => el.classList.contains('is-active')));
+        const HOLD = 3000;
+        const TRANSITION = 550;
+        const advance = () => {
+          const current = items[idx];
+          idx = (idx + 1) % items.length;
+          const next = items[idx];
+          current.classList.remove('is-active');
+          current.classList.add('is-leaving');
+          next.classList.add('is-active');
+          setTimeout(() => current.classList.remove('is-leaving'), TRANSITION);
+          setTimeout(advance, HOLD);
         };
+        setTimeout(advance, HOLD);
       }
-      return { el, isNumber: false, target, length: target.length };
-    });
-
-    // Lock each number/letters element to the widest width it will ever
-    // need (spin values + final value), so the differing digit/letter
-    // count never shifts the following stats in the flex row.
-    statMeta.forEach((s) => {
-      const probe = s.isNumber ? (s.suffix === '%' ? '100%' : '12') : 'W'.repeat(s.length);
-      const original = s.el.textContent;
-      s.el.textContent = probe;
-      const w = s.el.getBoundingClientRect().width;
-      s.el.textContent = original;
-      s.el.style.minWidth = Math.ceil(w) + 'px';
-    });
-
-    let spinning = true;
-    const spin = () => {
-      if (!spinning) return;
-      statMeta.forEach((s) => {
-        if (s.isNumber) {
-          const max = s.suffix === '%' ? 100 : 12;
-          s.el.textContent = Math.floor(Math.random() * (max + 1)) + s.suffix;
-        } else {
-          let out = '';
-          for (let i = 0; i < s.length; i++) out += spinChars[(Math.random() * spinChars.length) | 0];
-          s.el.textContent = out;
-        }
-      });
-      setTimeout(spin, 70);
-    };
-    spin();
-
-    typeHeadline(heroH1, () => {
-      spinning = false;
-      setTimeout(() => {
-        statMeta.forEach((s) => {
-          if (s.isNumber) countBetween(s.el, s.from, s.target, s.suffix, s.duration);
-          else scrambleText(s.el, s.target, 700);
-        });
-      }, 100);
-    });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', () => {
