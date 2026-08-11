@@ -31,6 +31,7 @@
     let rafId = null;
     let paused = true;
     let inView = false;
+    let textBand = null; // {left, right} in host-local px — the column to keep clear
 
     const mobile = () => width < 720;
     const baseCount = density === 'header' ? 14 : density === 'light' ? 26 : 52;
@@ -39,8 +40,35 @@
     const particleColor = theme === 'light' ? '25,25,112' : '200,200,250';
     const ringColor = theme === 'light' ? '25,25,112' : '255,255,255';
 
+    // Measure the actual text column (not the full-bleed .container wrapper)
+    // so particles/shapes render only in the genuinely empty space beside it,
+    // never directly behind or right next to the copy.
+    function measureTextBand() {
+      const textEl = host.querySelector('.hero-inner, .section-head')
+        || (host.classList.contains('cta-banner') ? host.querySelector('h2') : null);
+      if (!textEl) return null;
+      const hostRect = host.getBoundingClientRect();
+      const elRect = textEl.getBoundingClientRect();
+      if (elRect.width === 0) return null;
+      const margin = 44;
+      return {
+        left: Math.max(0, elRect.left - hostRect.left - margin),
+        right: Math.min(width, elRect.right - hostRect.left + margin),
+      };
+    }
+
+    function freeX() {
+      if (!textBand) return rand(0, width);
+      const leftW = textBand.left;
+      const rightW = width - textBand.right;
+      const total = leftW + rightW;
+      if (total < 40) return rand(0, width); // no meaningful free space, don't force it
+      const pick = Math.random() * total;
+      return pick < leftW ? rand(0, textBand.left) : rand(textBand.right, width);
+    }
+
     function particleX() {
-      return rand(0, width);
+      return freeX();
     }
 
     function makeParticles() {
@@ -64,12 +92,10 @@
       shapes = [];
       if (density === 'header') return;
       const n = mobile() ? 1 : (density === 'light' ? 2 : 3);
-      const xMin = width * 0.1;
-      const xMax = width * 0.9;
       for (let i = 0; i < n; i++) {
         shapes.push({
           kind: 'ring',
-          x: rand(xMin, xMax),
+          x: freeX(),
           y: rand(height * 0.15, height * 0.9),
           r: rand(50, density === 'light' ? 120 : 180),
           depth: rand(0.15, 0.4),
@@ -80,7 +106,7 @@
       if (!mobile() && density !== 'light') {
         shapes.push({
           kind: 'frame',
-          x: rand(xMin, xMax), y: rand(height * 0.2, height * 0.85),
+          x: freeX(), y: rand(height * 0.2, height * 0.85),
           w: 130, h: 88, rot: -0.07,
           depth: 0.22, phase: rand(0, Math.PI * 2),
           opacity: 0.1,
@@ -99,6 +125,7 @@
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      textBand = measureTextBand();
       makeParticles();
       makeShapes();
     }
@@ -106,6 +133,11 @@
     function step(p, t) {
       p.x += p.vx;
       p.y += p.vy + Math.sin(t * 0.00018 + p.phase) * 0.02;
+      if (textBand && p.x > textBand.left && p.x < textBand.right) {
+        // never let a particle drift across the text column — bounce it back out
+        p.vx *= -1;
+        p.x += p.vx * 2;
+      }
       if (p.x < -20) p.x = width + 20;
       if (p.x > width + 20) p.x = -20;
       if (p.y < -20) p.y = height + 20;
