@@ -300,6 +300,15 @@ header.site-header.on-light .burger span { background: var(--navy); }
   height: 320px;
   right: -10px;
 }
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
 .hero-inner { max-width: 720px; position: relative; z-index: 2; }
 .eyebrow {
   display: inline-flex;
