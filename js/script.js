@@ -220,48 +220,16 @@
       );
     }
 
-    // Header scroll shadow + adaptive color (the header switches between its
-    // dark and light gradient depending on which section sits at its position)
+    // Header scroll shadow (the header is always the light variant now, so no
+    // adaptive dark/light contrast switching is needed any more)
     const header = document.querySelector('header.site-header');
     if (header) {
-      const sections = Array.from(document.querySelectorAll('section')).map((el) => ({
-        el,
-        isLight: !el.classList.contains('hero') && !el.classList.contains('section-dark'),
-      }));
-      let ticking = false;
-
-      const updateHeaderContrast = () => {
-        // Probe right at the header's own bottom edge: at scrollY 0 the header
-        // still sits in normal flow (nothing is "underneath" it yet), so the
-        // section starting immediately below must count as the current one.
-        const probe = header.offsetHeight;
-        let current = null;
-        for (const s of sections) {
-          const rect = s.el.getBoundingClientRect();
-          if (rect.top <= probe && rect.bottom > probe) {
-            current = s;
-            break;
-          }
-        }
-        if (!current) current = sections[0];
-        if (!current) return;
-        header.classList.toggle('on-light', current.isLight);
-      };
-
+      header.classList.add('on-light');
       const onScroll = () => {
         header.classList.toggle('scrolled', window.scrollY > 10);
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            updateHeaderContrast();
-            ticking = false;
-          });
-          ticking = true;
-        }
       };
-
       window.addEventListener('scroll', onScroll);
-      window.addEventListener('resize', updateHeaderContrast);
-      updateHeaderContrast();
+      onScroll();
     }
 
     // Scroll-triggered reveal animations

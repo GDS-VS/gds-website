@@ -23,6 +23,7 @@
 
     const bias = canvas.dataset.bias || 'right';
     const density = canvas.dataset.density || 'normal';
+    const theme = canvas.dataset.theme || 'dark';
 
     let width = 0, height = 0, dpr = 1;
     let particles = [];
@@ -32,8 +33,11 @@
     let inView = false;
 
     const mobile = () => width < 720;
-    const baseCount = density === 'light' ? 26 : 52;
-    const mobileCount = density === 'light' ? 12 : 20;
+    const baseCount = density === 'header' ? 14 : density === 'light' ? 26 : 52;
+    const mobileCount = density === 'header' ? 7 : density === 'light' ? 12 : 20;
+    const opacityScale = density === 'header' ? 0.6 : 1;
+    const particleColor = theme === 'light' ? '25,25,112' : '200,200,250';
+    const ringColor = theme === 'light' ? '25,25,112' : '255,255,255';
 
     function particleX() {
       if (bias === 'right') return width * (1 - Math.pow(Math.random(), 1.8));
@@ -53,13 +57,14 @@
           y, vy: rand(-0.05, 0.05) * depth,
           r: rand(1, 2.1) * depth,
           phase: rand(0, Math.PI * 2),
-          opacity: (0.14 + 0.46 * rightness) * rand(0.6, 1),
+          opacity: (0.14 + 0.46 * rightness) * rand(0.6, 1) * opacityScale,
         });
       }
     }
 
     function makeShapes() {
       shapes = [];
+      if (density === 'header') return;
       const n = mobile() ? 1 : (density === 'light' ? 2 : 3);
       const xMin = bias === 'right' ? width * 0.55 : width * 0.1;
       const xMax = bias === 'right' ? width * 0.95 : width * 0.9;
@@ -112,9 +117,9 @@
     function draw(t) {
       ctx.clearRect(0, 0, width, height);
 
-      const maxDist = mobile() ? 90 : (density === 'light' ? 110 : 130);
+      const maxDist = mobile() ? 90 : (density === 'header' ? 75 : density === 'light' ? 110 : 130);
       ctx.lineWidth = 1;
-      if (!mobile()) {
+      if (!mobile() && density !== 'header') {
         ctx.shadowBlur = 4;
         ctx.shadowColor = 'rgba(122,122,224,0.5)';
       }
@@ -143,7 +148,7 @@
         if (s.kind === 'ring') {
           ctx.beginPath();
           ctx.arc(0, 0, s.r, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(255,255,255,${s.opacity})`;
+          ctx.strokeStyle = `rgba(${ringColor},${s.opacity})`;
           ctx.lineWidth = 1.2;
           ctx.stroke();
         } else if (s.kind === 'frame') {
@@ -164,7 +169,7 @@
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,200,250,${p.opacity})`;
+        ctx.fillStyle = `rgba(${particleColor},${p.opacity})`;
         ctx.fill();
       });
     }
