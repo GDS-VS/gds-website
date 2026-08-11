@@ -40,7 +40,7 @@
     const ringColor = theme === 'light' ? '25,25,112' : '255,255,255';
 
     function particleX() {
-      if (bias === 'right') return width * (1 - Math.pow(Math.random(), 1.8));
+      if (bias === 'right') return width * (1 - Math.pow(Math.random(), 1.15));
       return rand(0, width);
     }
 
@@ -57,7 +57,7 @@
           y, vy: rand(-0.05, 0.05) * depth,
           r: rand(1, 2.1) * depth,
           phase: rand(0, Math.PI * 2),
-          opacity: (0.14 + 0.46 * rightness) * rand(0.6, 1) * opacityScale,
+          opacity: (0.2 + 0.24 * rightness) * rand(0.6, 1) * opacityScale,
         });
       }
     }
@@ -66,7 +66,7 @@
       shapes = [];
       if (density === 'header') return;
       const n = mobile() ? 1 : (density === 'light' ? 2 : 3);
-      const xMin = bias === 'right' ? width * 0.55 : width * 0.1;
+      const xMin = bias === 'right' ? width * 0.3 : width * 0.1;
       const xMax = bias === 'right' ? width * 0.95 : width * 0.9;
       for (let i = 0; i < n; i++) {
         shapes.push({
