@@ -40,7 +40,6 @@
     const ringColor = theme === 'light' ? '25,25,112' : '255,255,255';
 
     function particleX() {
-      if (bias === 'right') return width * (1 - Math.pow(Math.random(), 1.15));
       return rand(0, width);
     }
 
@@ -51,13 +50,12 @@
         const x = particleX();
         const y = rand(0, height);
         const depth = rand(0.35, 1);
-        const rightness = bias === 'right' ? x / width : 0.55;
         particles.push({
           x, vx: rand(-0.055, 0.055) * depth,
           y, vy: rand(-0.05, 0.05) * depth,
           r: rand(1, 2.1) * depth,
           phase: rand(0, Math.PI * 2),
-          opacity: (0.2 + 0.24 * rightness) * rand(0.6, 1) * opacityScale,
+          opacity: (0.18 + 0.28 * rand(0, 1)) * rand(0.6, 1) * opacityScale,
         });
       }
     }
@@ -66,8 +64,8 @@
       shapes = [];
       if (density === 'header') return;
       const n = mobile() ? 1 : (density === 'light' ? 2 : 3);
-      const xMin = bias === 'right' ? width * 0.3 : width * 0.1;
-      const xMax = bias === 'right' ? width * 0.95 : width * 0.9;
+      const xMin = width * 0.1;
+      const xMax = width * 0.9;
       for (let i = 0; i < n; i++) {
         shapes.push({
           kind: 'ring',
@@ -79,10 +77,10 @@
           opacity: rand(0.03, 0.08),
         });
       }
-      if (!mobile() && bias === 'right' && density !== 'light') {
+      if (!mobile() && density !== 'light') {
         shapes.push({
           kind: 'frame',
-          x: width * 0.78, y: height * 0.32,
+          x: rand(xMin, xMax), y: rand(height * 0.2, height * 0.85),
           w: 130, h: 88, rot: -0.07,
           depth: 0.22, phase: rand(0, Math.PI * 2),
           opacity: 0.1,
