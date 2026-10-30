@@ -3,6 +3,38 @@
    Schwarz / Weiß / Navy – minimalistisch & professionell
 =================================================== */
 
+/* ---------- Lokal gehostete Schriften (SIL Open Font License) ---------- */
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 400 800; font-display: swap;
+  src: url('../fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 400 800; font-display: swap;
+  src: url('../fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope'; font-style: normal; font-weight: 700 800; font-display: swap;
+  src: url('../fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope'; font-style: normal; font-weight: 700 800; font-display: swap;
+  src: url('../fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../fonts/spacegrotesk-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('../fonts/spacegrotesk-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --black: #0a0a0b;
   --black-soft: #141416;
@@ -11,6 +43,7 @@
   --off-white: #f6f6f7;
   --gray-100: #eceef0;
   --gray-300: #c7c9cd;
+  --gray-400: #bcbfc5;
   --gray-500: #8a8d93;
   --gray-700: #4a4c50;
   --navy: #191970;
@@ -405,7 +438,7 @@ header.site-header.on-light .burger span { background: var(--navy); }
   .hero-stats .stat { opacity: 1; transform: none; transition: none; }
 }
 .stat b { display: block; font-size: 28px; color: var(--white); min-width: 4ch; }
-.stat span { font-size: 13px; color: var(--gray-500); }
+.stat span { font-size: 13px; color: var(--gray-400); }
 
 /* ---------- Service area strip ---------- */
 .area-strip {
@@ -431,7 +464,7 @@ header.site-header.on-light .burger span { background: var(--navy); }
   white-space: nowrap;
 }
 .area-label svg { width: 16px; height: 16px; stroke: var(--navy); flex-shrink: 0; }
-.area-list { color: var(--gray-500); font-size: 14px; }
+.area-list { color: var(--gray-700); font-size: 14px; }
 
 /* ---------- Scroll reveal ---------- */
 .reveal {
@@ -703,7 +736,7 @@ section { padding: 100px 0; }
 .plan.featured .plan-name { color: var(--white); }
 .plan-price { font-size: 38px; font-weight: 700; letter-spacing: -1px; color: var(--white); }
 .plan.featured .plan-price { font-size: 44px; }
-.plan-price-note { font-size: 12.5px; font-weight: 500; color: var(--gray-500); margin-bottom: 24px; }
+.plan-price-note { font-size: 12.5px; font-weight: 500; color: var(--gray-400); margin-bottom: 24px; }
 .plan-desc { font-size: 14px; color: var(--gray-300); margin-bottom: 28px; }
 .plan ul { flex-grow: 1; margin-bottom: 32px; }
 .plan ul li {
@@ -718,13 +751,13 @@ section { padding: 100px 0; }
 .plan ul li svg { width: 16px; height: 16px; stroke: var(--navy-light); flex-shrink: 0; margin-top: 3px; }
 .plan-note {
   text-align: center;
-  color: var(--gray-500);
+  color: var(--gray-400);
   font-size: 13.5px;
   margin-top: 36px;
 }
 .plan-note-secondary {
   text-align: center;
-  color: var(--gray-500);
+  color: var(--gray-400);
   font-size: 13px;
   margin-top: 12px;
 }
@@ -778,7 +811,7 @@ section { padding: 100px 0; }
 .placeholder-note {
   margin-top: 40px;
   font-size: 13px;
-  color: var(--gray-500);
+  color: var(--gray-700);
   border-left: 2px solid var(--gray-300);
   padding-left: 14px;
 }
@@ -893,7 +926,7 @@ footer {
   padding: 72px 0 28px;
 }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-.footer-brand p { font-size: 14px; color: var(--gray-500); margin-top: 16px; max-width: 320px; }
+.footer-brand p { font-size: 14px; color: var(--gray-400); margin-top: 16px; max-width: 320px; }
 .footer-col h4 { font-size: 14px; color: var(--white); margin-bottom: 18px; }
 .footer-col ul li { margin-bottom: 12px; font-size: 14px; }
 .footer-col a:hover { color: var(--white); }
@@ -903,7 +936,7 @@ footer {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  color: var(--gray-500);
+  color: var(--gray-400);
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -987,3 +1020,27 @@ footer {
 }
 .ref-construction h2 { margin-bottom: 16px; }
 .ref-construction p { color: var(--gray-700); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px; }
+
+/* ---------- Barrierefreiheit: Skip-Link & Fokus-Zustände ---------- */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 1000;
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 2px solid var(--navy-light); outline-offset: 3px; }
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.wip-form input:focus-visible { outline: 2px solid var(--navy-light); outline-offset: 2px; }
+.form-privacy { font-size: 13px; color: var(--gray-700); margin-top: 14px; line-height: 1.6; }
+.form-privacy a { text-decoration: underline; }
+main:focus { outline: none; }

@@ -17,10 +17,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Häufige Fragen – GDS Villingen-Schwenningen">
 <meta name="twitter:description" content="Antworten auf die häufigsten Fragen zu Ablauf, Kosten, Dauer und Zusammenarbeit mit GDS in Villingen-Schwenningen.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,6 +83,7 @@
 }
 </script>
 </head><body>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ============ WORK IN PROGRESS GATE ============ -->
 <div id="wipGate">
@@ -94,7 +92,7 @@
     <div class="wip-title">Diese Seite ist noch nicht live</div>
     <p class="wip-sub">Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
     <form id="wipForm" class="wip-form">
-      <input type="password" id="wipPassword" placeholder="Passwort" autocomplete="off" required>
+      <input type="password" id="wipPassword" aria-label="Passwort" placeholder="Passwort" autocomplete="off" required>
       <button type="submit">Ansehen</button>
     </form>
     <div class="wip-error" id="wipError"></div>
@@ -124,6 +122,7 @@
     </div>
   </div>
 </header>
+<main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="hero" style="padding:80px 0 70px;">
@@ -239,6 +238,8 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -256,6 +257,7 @@
           <li><a href="faq.html">Häufige Fragen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
         </ul>
       </div>
       <div class="footer-col">

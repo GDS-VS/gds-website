@@ -17,10 +17,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kontakt – GDS Villingen-Schwenningen">
 <meta name="twitter:description" content="Kontaktieren Sie GDS in Villingen-Schwenningen für eine kostenlose Erstberatung zu Ihrer Website, SEO-Optimierung oder Redesign.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,6 +40,7 @@
 }
 </script>
 </head><body>
+<a href="#main" class="skip-link">Zum Inhalt springen</a>
 
 <!-- ============ WORK IN PROGRESS GATE ============ -->
 <div id="wipGate">
@@ -51,7 +49,7 @@
     <div class="wip-title">Diese Seite ist noch nicht live</div>
     <p class="wip-sub">Bitte Passwort eingeben, um die Vorschau zu sehen.</p>
     <form id="wipForm" class="wip-form">
-      <input type="password" id="wipPassword" placeholder="Passwort" autocomplete="off" required>
+      <input type="password" id="wipPassword" aria-label="Passwort" placeholder="Passwort" autocomplete="off" required>
       <button type="submit">Ansehen</button>
     </form>
     <div class="wip-error" id="wipError"></div>
@@ -81,6 +79,7 @@
     </div>
   </div>
 </header>
+<main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="hero" style="padding:80px 0 70px;">
@@ -158,22 +157,22 @@
       <form id="contactForm">
         <div class="form-row">
           <div class="form-group">
-            <label>Name *</label>
-            <input type="text" name="name" required>
+            <label for="cf-name">Name *</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
           </div>
           <div class="form-group">
-            <label>E-Mail *</label>
-            <input type="email" name="email" required>
+            <label for="cf-email">E-Mail *</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Telefon (optional)</label>
-            <input type="tel" name="phone">
+            <label for="cf-phone">Telefon (optional)</label>
+            <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
           </div>
           <div class="form-group">
-            <label>Interessiert an</label>
-            <select name="service">
+            <label for="cf-service">Interessiert an</label>
+            <select id="cf-service" name="service">
               <option value="Website-Erstellung">Website-Erstellung</option>
               <option value="SEO-Optimierung">SEO-Optimierung</option>
               <option value="Redesign">Redesign</option>
@@ -183,23 +182,26 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Wunschtermin für Erstberatung (optional)</label>
-          <input type="text" name="preferred_time" placeholder="z. B. Dienstag Nachmittag / e.g. Tuesday afternoon">
+          <label for="cf-time">Wunschtermin für Erstberatung (optional)</label>
+          <input type="text" id="cf-time" name="preferred_time" placeholder="z. B. Dienstag Nachmittag">
         </div>
         <div class="form-group">
-          <label>Nachricht *</label>
-          <textarea name="message" required placeholder=""></textarea>
+          <label for="cf-message">Nachricht *</label>
+          <textarea id="cf-message" name="message" required></textarea>
         </div>
         <button type="submit" class="btn-cta" style="width:100%; border:none;">
           Nachricht senden
         </button>
-        <div id="formMsg" class="form-msg"
+        <p class="form-privacy">Ihre Angaben verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage. Weitere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        <div id="formMsg" class="form-msg" role="status" aria-live="polite"
              data-ok="Danke! Ihre Nachricht wurde gesendet – wir melden uns in Kürze."
              data-err="Da ist etwas schiefgelaufen. Bitte schreiben Sie uns direkt an kontakt@gds-vs.de."></div>
       </form>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="container">
@@ -218,6 +220,7 @@
           <li><a href="faq.html">Häufige Fragen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
         </ul>
       </div>
       <div class="footer-col">
