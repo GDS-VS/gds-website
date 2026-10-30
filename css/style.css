@@ -353,15 +353,6 @@ header.site-header.on-light .burger span { background: var(--navy); }
   height: 320px;
   right: -10px;
 }
-.bg-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  display: block;
-}
 .hero-inner { max-width: 720px; position: relative; z-index: 2; }
 .eyebrow {
   display: inline-flex;
@@ -421,7 +412,7 @@ header.site-header.on-light .burger span { background: var(--navy); }
 
 .hero-stats {
   display: flex;
-  gap: 28px;
+  gap: 22px 24px;
   margin-top: 56px;
   flex-wrap: wrap;
 }
@@ -437,7 +428,7 @@ header.site-header.on-light .burger span { background: var(--navy); }
 @media (prefers-reduced-motion: reduce) {
   .hero-stats .stat { opacity: 1; transform: none; transition: none; }
 }
-.stat b { display: block; font-size: 28px; color: var(--white); min-width: 4ch; }
+.stat b { display: block; font-size: 26px; color: var(--white); min-width: 4ch; }
 .stat span { font-size: 13px; color: var(--gray-400); }
 
 /* ---------- Service area strip ---------- */
@@ -1044,3 +1035,67 @@ footer {
 .form-privacy { font-size: 13px; color: var(--gray-700); margin-top: 14px; line-height: 1.6; }
 .form-privacy a { text-decoration: underline; }
 main:focus { outline: none; }
+
+/* ---------- Marken-Motiv: Ring mit Punkt (angelehnt an den Logo-Punkt) ---------- */
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -150px;
+  bottom: -170px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: radial-gradient(circle at center, var(--navy-light) 0 6px, transparent 7px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Platzhalter: Porträt ---------- */
+.person-ph, .about-photo svg, .hero-person-photo svg { color: rgba(255,255,255,0.35); }
+.about-photo { flex-direction: column; gap: 14px; }
+.about-photo svg { width: 96px; height: 96px; z-index: 1; }
+.hero-person {
+  position: absolute;
+  top: 50%;
+  right: max(24px, calc((100% - var(--maxw)) / 2 + 24px));
+  transform: translateY(-50%);
+  width: 240px;
+  z-index: 1;
+  text-align: center;
+}
+.hero-person-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.045);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: var(--gray-400);
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero-person-photo svg { width: 88px; height: 88px; }
+.hero-person-name { font-weight: 700; font-size: 16px; color: var(--white); }
+.hero-person-role { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+@media (max-width: 1100px) { .hero-person { display: none; } }
+
+/* ---------- Platzhalter: Referenzen ---------- */
+.ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.ref-card {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 18px 18px 22px;
+}
+.ref-card-frame { display: flex; gap: 6px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-100); }
+.ref-card-frame span { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-300); }
+.ref-card-body { padding: 26px 4px 30px; display: grid; gap: 12px; }
+.ref-card-body i { display: block; height: 8px; border-radius: 4px; background: var(--gray-100); }
+.ref-card-body i:nth-child(1) { width: 70%; }
+.ref-card-body i:nth-child(2) { width: 95%; }
+.ref-card-body i:nth-child(3) { width: 55%; }
+.ref-card-label { font-weight: 700; font-size: 15px; color: var(--charcoal); }
+.ref-card-label small { display: block; font-weight: 500; font-size: 13px; color: var(--gray-700); margin-top: 2px; }
+@media (max-width: 900px) { .ref-grid { grid-template-columns: 1fr; } }
