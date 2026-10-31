@@ -30,7 +30,7 @@ Contact via form (Formspree), phone and e-mail. Packages Basic 590 €, Advanced
 ## Brand Commitments
 - Logo/wordmark "GDS." (Manrope 800, accent dot, subline "Webdesign & SEO") stays unchanged. The dot colour currently is `#7a7ae0`.
 - Binding wishes from the owner in this project: calm premium agency look, nothing "AI slop", no typewriter/counting animations, no particle background, dashes as en dash (–), customers must not be shown that they are the first clients.
-- Direction chosen for the redesign: a new colour world derived from the place (Schwarzwald-Baar), replacing the default navy/indigo.
+- Direction chosen for the redesign: a flat slate-and-sky colour world with no accent colour (owner chose option "A, only slate"), replacing the default navy/indigo.
 
 ## Evidence on Hand
 No customer photos, no portrait of Mikail yet (placeholders exist), no real reference projects yet, no testimonials, no measured benchmarks. Do not fabricate any of these.

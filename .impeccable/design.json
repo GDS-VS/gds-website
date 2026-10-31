@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-31T00:00:00Z",
+  "generatedAt": "2026-10-31T12:00:00Z",
   "title": "Design System: GDS – Gürkan Digital Services",
   "extensions": {
     "colorMeta": {
-      "fir": { "role": "primary", "displayName": "Tannengrün", "canonical": "#1e3a2f", "tonalRamp": ["#0b1712", "#14271f", "#1e3a2f", "#35574a", "#587869", "#86a094", "#b3c2b8", "#e3e8e2"] },
-      "signal": { "role": "secondary", "displayName": "Wegweiser-Gelb", "canonical": "#f2c230", "tonalRamp": ["#3d2f05", "#6b5209", "#a37f10", "#d3a620", "#f2c230", "#f6d462", "#f9e393", "#fcf1c9"] },
-      "stone": { "role": "neutral", "displayName": "Kalkstein", "canonical": "#e3e8e2", "tonalRamp": ["#151a16", "#46504a", "#7b857e", "#aab4a8", "#c5d0c8", "#d2d9d0", "#e3e8e2", "#f3f6f2"] },
-      "ink": { "role": "neutral", "displayName": "Warm Black Ink", "canonical": "#151a16", "tonalRamp": ["#070908", "#0e110f", "#151a16", "#2a332c", "#46504a", "#6a746d", "#8f9992", "#b9c1bb"] }
+      "slate": { "role": "primary", "displayName": "Schiefer", "canonical": "#1c2a33", "tonalRamp": ["#0a1014", "#121c23", "#1c2a33", "#364853", "#5d7584", "#8196a4", "#a9bac4", "#cdd7dd"] },
+      "mist": { "role": "secondary", "displayName": "Dunst", "canonical": "#9fb3bf", "tonalRamp": ["#2c3a42", "#4a5e6a", "#6c8392", "#8296a3", "#9fb3bf", "#b7c6d0", "#cfdae1", "#e6edf1"] },
+      "sky": { "role": "neutral", "displayName": "Himmel", "canonical": "#dfe7ec", "tonalRamp": ["#1c2a33", "#3f4e57", "#5d7584", "#9fb3bf", "#c3d0d8", "#cdd7dd", "#dfe7ec", "#eef2f5"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#eef2f5", "tonalRamp": ["#1c2a33", "#3f4e57", "#5d7584", "#a9bac4", "#c3d0d8", "#dfe7ec", "#eef2f5", "#ffffff"] }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero H1, uppercase condensed." },
@@ -17,8 +17,8 @@
       "label": { "displayName": "Label", "purpose": "Buttons, nav, form labels." }
     },
     "shadows": [
-      { "name": "header-scrolled", "value": "0 6px 20px rgba(20, 39, 31, 0.1)", "purpose": "Only shadow in the system; sticky header after scroll." },
-      { "name": "board-rule", "value": "inset 0 3px 0 #151a16, inset 0 -3px 0 #151a16", "purpose": "Ink rules top and bottom of a sign board (2px on small arms)." }
+      { "name": "header-scrolled", "value": "0 6px 20px rgba(18, 28, 35, 0.12)", "purpose": "Only drop shadow in the system; sticky header after scroll." },
+      { "name": "board-rule", "value": "inset 0 3px 0 #1c2a33, inset 0 -3px 0 #1c2a33", "purpose": "Ink rules top and bottom of a sign board (2px on small arms)." }
     ],
     "motion": [
       { "name": "reveal", "value": "0.6s ease-out, translateY(14px)", "purpose": "Scroll reveal; disabled under reduced motion." },
@@ -37,25 +37,33 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Yellow board-coloured primary action with ink text.",
+      "description": "Slate primary action with sky text on light grounds.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Kostenlose Erstberatung</a>",
-      "css": ".ds-btn-primary { display: inline-block; background: #f2c230; color: #151a16; padding: 13px 26px; border-radius: 4px; font: 600 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: background-color .2s ease, transform .2s ease; } .ds-btn-primary:hover { background: #f6d462; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 3px solid #151a16; outline-offset: 3px; }"
+      "css": ".ds-btn-primary { display: inline-block; background: #1c2a33; color: #dfe7ec; padding: 13px 26px; border-radius: 4px; font: 600 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: background-color .2s ease, transform .2s ease; } .ds-btn-primary:hover { background: #364853; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 3px solid #1c2a33; outline-offset: 3px; }"
+    },
+    {
+      "name": "Primary Button on Dark",
+      "kind": "button",
+      "refersTo": "button-primary-on-dark",
+      "description": "Sky primary action with slate text on hero and dark sections.",
+      "html": "<div style=\"background:#1c2a33;padding:20px\"><a class=\"ds-btn-dark\" href=\"#\">Kostenlose Erstberatung</a></div>",
+      "css": ".ds-btn-dark { display: inline-block; background: #dfe7ec; color: #1c2a33; padding: 13px 26px; border-radius: 4px; font: 600 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: background-color .2s ease, transform .2s ease; } .ds-btn-dark:hover { background: #ffffff; transform: translateY(-1px); } .ds-btn-dark:focus-visible { outline: 3px solid #9fb3bf; outline-offset: 3px; }"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Secondary action on green grounds.",
-      "html": "<div style=\"background:#1e3a2f;padding:20px\"><a class=\"ds-btn-outline\" href=\"#\">Leistungen ansehen</a></div>",
-      "css": ".ds-btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,.55); color: #fff; padding: 11.5px 25px; border-radius: 4px; font: 500 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: border-color .2s ease, background-color .2s ease; } .ds-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); } .ds-btn-outline:focus-visible { outline: 3px solid #f2c230; outline-offset: 3px; }"
+      "description": "Secondary action on slate grounds.",
+      "html": "<div style=\"background:#1c2a33;padding:20px\"><a class=\"ds-btn-outline\" href=\"#\">Leistungen ansehen</a></div>",
+      "css": ".ds-btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,.55); color: #fff; padding: 11.5px 25px; border-radius: 4px; font: 500 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: border-color .2s ease, background-color .2s ease; } .ds-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); } .ds-btn-outline:focus-visible { outline: 3px solid #9fb3bf; outline-offset: 3px; }"
     },
     {
       "name": "Sign Board (arm)",
       "kind": "custom",
       "refersTo": "sign-board",
-      "description": "Yellow arrow board with ink rules; right-pointing arm.",
-      "html": "<div style=\"background:#1e3a2f;padding:24px\"><div class=\"ds-arm\"><b>Persönlich</b><span>Fester Ansprechpartner</span></div></div>",
-      "css": ".ds-arm { background: #f2c230; color: #151a16; padding: 11px 42px 11px 20px; width: 280px; box-shadow: inset 0 2px 0 #151a16, inset 0 -2px 0 #151a16; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%); } .ds-arm b { display: block; font: 700 28px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .01em; } .ds-arm span { display: block; font: 500 15px/1.3 Barlow, Arial, sans-serif; }"
+      "description": "Mist arrow board with ink rules; right-pointing arm.",
+      "html": "<div style=\"background:#1c2a33;padding:24px\"><div class=\"ds-arm\"><b>Persönlich</b><span>Fester Ansprechpartner</span></div></div>",
+      "css": ".ds-arm { background: #9fb3bf; color: #1c2a33; padding: 11px 42px 11px 20px; width: 280px; box-shadow: inset 0 2px 0 #1c2a33, inset 0 -2px 0 #1c2a33; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%); } .ds-arm b { display: block; font: 700 28px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .01em; } .ds-arm span { display: block; font: 500 15px/1.3 Barlow, Arial, sans-serif; }"
     },
     {
       "name": "Service List Row",
@@ -63,7 +71,7 @@
       "refersTo": "card",
       "description": "Ink-ruled service row with condensed name and arrow.",
       "html": "<ul class=\"ds-list\"><li><a href=\"#\"><span class=\"ds-name\">Webdesign</span><span class=\"ds-text\">Ihre Website, persönlich umgesetzt.</span></a></li></ul>",
-      "css": ".ds-list { list-style: none; margin: 0; padding: 0; } .ds-list li { border-top: 2px solid #151a16; border-bottom: 2px solid #151a16; } .ds-list a { display: block; padding: 26px 56px 26px 0; color: #151a16; text-decoration: none; transition: padding .25s ease; } .ds-list a:hover { padding-left: 14px; } .ds-name { display: block; font: 700 40px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin-bottom: 6px; } .ds-text { display: block; color: #46504a; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
+      "css": ".ds-list { list-style: none; margin: 0; padding: 0; } .ds-list li { border-top: 2px solid #1c2a33; border-bottom: 2px solid #1c2a33; } .ds-list a { display: block; padding: 26px 56px 26px 0; color: #1c2a33; text-decoration: none; transition: padding .25s ease; } .ds-list a:hover { padding-left: 14px; } .ds-name { display: block; font: 700 40px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin-bottom: 6px; } .ds-text { display: block; color: #3f4e57; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
     },
     {
       "name": "Card",
@@ -71,50 +79,62 @@
       "refersTo": "card",
       "description": "Paper card with hairline border.",
       "html": "<div class=\"ds-card\"><h3>Redesign</h3><p>Aus alt wird übersichtlich und schnell.</p></div>",
-      "css": ".ds-card { background: #f3f6f2; border: 1px solid #d2d9d0; border-radius: 6px; padding: 34px 32px; } .ds-card h3 { font: 700 34px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin: 0 0 12px; color: #151a16; } .ds-card p { margin: 0; color: #46504a; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
+      "css": ".ds-card { background: #eef2f5; border: 1px solid #cdd7dd; border-radius: 6px; padding: 34px 32px; } .ds-card h3 { font: 700 34px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin: 0 0 12px; color: #1c2a33; } .ds-card p { margin: 0; color: #3f4e57; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
+    },
+    {
+      "name": "Featured Plan",
+      "kind": "card",
+      "refersTo": "plan-card",
+      "description": "Translucent plan on slate with mist border and badge.",
+      "html": "<div style=\"background:#1c2a33;padding:28px\"><div class=\"ds-plan\"><span class=\"ds-badge\">Beliebt</span><div class=\"ds-pn\">Advanced</div><div class=\"ds-price\">1.290 €</div></div></div>",
+      "css": ".ds-plan { position: relative; background: rgba(255,255,255,.08); border: 2px solid #9fb3bf; border-radius: 6px; padding: 39px 31px; color: #fff; } .ds-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #9fb3bf; color: #1c2a33; font: 600 13px Barlow, Arial, sans-serif; letter-spacing: 1px; text-transform: uppercase; padding: 5px 16px; border-radius: 4px; } .ds-pn { font: 600 15px Barlow, Arial, sans-serif; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; } .ds-price { font: 700 64px/1 'Barlow Condensed', 'Arial Narrow', sans-serif; }"
     },
     {
       "name": "Text Input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Paper field with fir focus outline.",
+      "description": "Paper field with slate focus outline.",
       "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Ihr Name\">",
-      "css": ".ds-input { width: 100%; padding: 13px 16px; border: 1.5px solid #aab4a8; border-radius: 4px; font: 400 17px Barlow, Arial, sans-serif; background: #f3f6f2; color: #151a16; } .ds-input:focus-visible { outline: 3px solid #1e3a2f; outline-offset: 1px; border-color: #1e3a2f; }"
+      "css": ".ds-input { width: 100%; padding: 13px 16px; border: 1.5px solid #9fb0ba; border-radius: 4px; font: 400 17px Barlow, Arial, sans-serif; background: #eef2f5; color: #1c2a33; } .ds-input:focus-visible { outline: 3px solid #1c2a33; outline-offset: 1px; border-color: #1c2a33; }"
     },
     {
       "name": "Navigation",
       "kind": "nav",
       "refersTo": "button-primary",
-      "description": "Header links with yellow active underline.",
+      "description": "Header links with slate active underline.",
       "html": "<nav class=\"ds-nav\"><a class=\"active\" href=\"#\">Start</a><a href=\"#\">Leistungen</a><a href=\"#\">Kontakt</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 36px; background: #f3f6f2; padding: 20px 24px; } .ds-nav a { position: relative; color: #46504a; font: 500 16px Barlow, Arial, sans-serif; padding: 6px 0; text-decoration: none; transition: color .2s ease; } .ds-nav a:hover, .ds-nav a.active { color: #151a16; } .ds-nav a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; background: #f2c230; } .ds-nav a:focus-visible { outline: 3px solid #1e3a2f; outline-offset: 3px; }"
+      "css": ".ds-nav { display: flex; gap: 36px; background: #eef2f5; padding: 20px 24px; } .ds-nav a { position: relative; color: #3f4e57; font: 500 16px Barlow, Arial, sans-serif; padding: 6px 0; text-decoration: none; transition: color .2s ease; } .ds-nav a:hover, .ds-nav a.active { color: #1c2a33; } .ds-nav a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; background: #1c2a33; } .ds-nav a:focus-visible { outline: 3px solid #1c2a33; outline-offset: 3px; }"
     }
   ],
   "narrative": {
     "northStar": "Der Wegweiser",
-    "overview": "The site is a Schwarzwald-Baar hiking signpost: it points a local business owner to the next step. Flat Tannengrün grounds carry Wegweiser-Gelb arrow boards lettered in black ink; Kalkstein sections give the reading rhythm in between. The world stays recognisable with all content removed: yellow arrow boards on a green field.\n\nThe tone is calm and precise. Sign lettering is condensed, uppercase where it is a sign, and reading text is plain Barlow. Every board is flat, with one pointed end and a thin ink rule top and bottom; depth comes from colour blocks, not effects. A person and a place come before decoration.",
+    "overview": "The site is a Schwarzwald-Baar hiking signpost: it points a local business owner to the next step. Flat Schiefer grounds carry Dunst arrow boards lettered in slate ink; Himmel sections give the reading rhythm in between. The world stays recognisable with all content removed: mist-blue arrow boards on a slate field.\n\nThe tone is calm and precise. Sign lettering is condensed, uppercase where it is a sign, and reading text is plain Barlow. Every board is flat, with one pointed end and a thin ink rule top and bottom; depth comes from colour blocks, not effects. There is no accent colour: the owner chose \"only slate\", so hierarchy comes from value and shape, never from a second hue. A person and a place come before decoration.",
     "keyCharacteristics": [
-      "Fir-green ground, yellow signal boards, limestone reading sections, warm-black ink.",
+      "Slate ground, mist signal boards, sky reading sections, slate ink; one cool blue-gray hue family throughout.",
       "Arrow-shaped boards (clip-path point) with 2–3px ink rules inside top and bottom edges.",
       "Barlow Condensed for sign lettering and headings, Barlow for reading.",
       "Flat at rest; motion is small fades and 6–14px slides, all disabled under reduced motion.",
       "One owner-fixed exception: the \"GDS.\" wordmark."
     ],
     "rules": [
-      { "name": "The Signal Scarcity Rule", "body": "Yellow appears only on boards, the primary action, and small markers (underline, dots, price). Never as a section background except the closing board.", "section": "colors" },
-      { "name": "The Ink-On-Yellow Rule", "body": "Text on yellow is always ink, never white or green.", "section": "colors" },
+      { "name": "The No-Accent Rule", "body": "Slate, mist and sky are values of one hue family; no yellow, green, red or indigo joins them. Emphasis comes from the dark/light flip, board shape and size.", "section": "colors" },
+      { "name": "The Mist Board Rule", "body": "Mist appears on boards, the closing board and small markers (dots, badge, featured border, icons). Text on mist is always slate ink, never white.", "section": "colors" },
+      { "name": "The Button Flip Rule", "body": "The primary button is slate with sky text on light grounds and sky with slate text on dark grounds (hero, dark sections); on the mist closing board it is slate.", "section": "colors" },
       { "name": "The Sign-Or-Read Rule", "body": "Condensed face for signs and headings, Barlow for anything read in sentences. Headings use text-wrap: balance.", "section": "typography" },
       { "name": "The Flat-Board Rule", "body": "Boards carry no drop shadows; their edge is the ink rule drawn as an inset shadow.", "section": "elevation" }
     ],
     "dos": [
-      "Do put yellow only on arrow boards, the primary action and small markers, with ink text.",
+      "Do keep the palette to the one blue-gray family: slate, mist, sky, paper and their tinted grays.",
+      "Do put mist only on arrow boards, the closing board and small markers, with slate ink text.",
       "Do draw boards flat: one pointed end, 2–3px ink rules top and bottom.",
+      "Do flip the primary button: slate on light, sky on dark.",
       "Do use Barlow Condensed for headings and sign text, Barlow for sentences.",
       "Do keep the \"GDS.\" wordmark exactly as is (Manrope 800, indigo gradient, #7a7ae0 dot, \"Webdesign & SEO\" subline).",
       "Do keep 44px minimum touch height and visible 3px focus outlines; wrap all motion in reduced-motion fallbacks.",
       "Do use en dashes and formal German \"Sie\"."
     ],
     "donts": [
+      "Don't introduce an accent colour; the owner chose \"only slate\".",
       "Don't use gradient text, glow, particle or canvas effects, or navy and indigo outside the wordmark.",
       "Don't add drop shadows to boards or cards.",
       "Don't invent photos, references, numbers or testimonials.",
