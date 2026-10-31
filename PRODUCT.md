@@ -28,7 +28,7 @@ Contact via form (Formspree), phone and e-mail. Packages Basic 590 €, Advanced
 - Prices and the three package contents must not change unless the owner asks.
 
 ## Brand Commitments
-- Logo/wordmark "GDS." (Manrope 800, accent dot, subline "Webdesign & SEO") stays unchanged. The dot colour currently is `#7a7ae0`.
+- Logo/wordmark "GDS." (Manrope 800, accent dot, subline "Webdesign & SEO") stays unchanged. The wordmark now uses the slate palette: slate gradient with a steel-blue (#5d7584) dot on light grounds, white-to-mist with a mist dot on dark grounds.
 - Binding wishes from the owner in this project: calm premium agency look, nothing "AI slop", no typewriter/counting animations, no particle background, dashes as en dash (–), customers must not be shown that they are the first clients.
 - Direction chosen for the redesign: a flat slate-and-sky colour world with no accent colour (owner chose option "A, only slate"), replacing the default navy/indigo.
 

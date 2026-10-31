@@ -180,16 +180,17 @@ header.site-header.scrolled { box-shadow: 0 6px 20px rgba(18, 28, 35, 0.12); }
 }
 .logo-script {
   display: inline-block;
-  background: linear-gradient(90deg, #ffffff 0%, #a5a5f5 35%, #ffffff 70%, #a5a5f5 100%);
+  background: linear-gradient(90deg, #ffffff 0%, var(--mist) 35%, #ffffff 70%, var(--mist) 100%);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: gdsShimmer 9s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(122, 122, 224, 0.45));
+  filter: drop-shadow(0 0 12px rgba(159, 179, 191, 0.4));
 }
-.logo-dot { color: #7a7ae0; }
+.logo-dot { color: var(--mist); }
+header.site-header .logo-dot { color: var(--post); }
 .logo-sub {
   font-family: 'Manrope', var(--font);
   font-weight: 500;
@@ -199,7 +200,7 @@ header.site-header.scrolled { box-shadow: 0 6px 20px rgba(18, 28, 35, 0.12); }
   color: var(--gray-300);
 }
 header.site-header .logo-script {
-  background-image: linear-gradient(90deg, #191970 0%, #7a7ae0 35%, #191970 70%, #7a7ae0 100%);
+  background-image: linear-gradient(90deg, var(--slate) 0%, var(--post) 35%, var(--slate) 70%, var(--post) 100%);
   filter: none;
 }
 header.site-header .logo-sub { color: var(--gray-700); }
