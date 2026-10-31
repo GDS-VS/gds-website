@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Über uns – GDS aus Villingen-Schwenningen">
 <meta name="twitter:description" content="Lernen Sie GDS kennen – Ihr lokaler Partner aus Villingen-Schwenningen für professionelle Websites, SEO und digitale Sichtbarkeit.">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,20 +75,17 @@
     </nav>
     <div class="header-right">
       <a href="kontakt.html" class="btn-cta">Erstberatung</a>
-      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
-<section class="hero" style="padding:80px 0 70px;">
+<section class="hero hero-page">
   <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>
-      Über uns
-    </div>
-    <h1 style="font-size:clamp(30px,4.5vw,46px);">
-      Der Mensch <span class="grad-text">hinter</span> <span class="logo-script" style="font-size:1.2em;">GDS</span>
+    <h1>
+      Der Mensch hinter GDS
     </h1>
     <p class="lead">
       Digitale Sichtbarkeit sollte kein Zufall sein. Genau dafür steht GDS – Ihr lokales Unternehmen aus Villingen-Schwenningen.
@@ -97,18 +95,6 @@
 
 <!-- ============ ABOUT MAIN ============ -->
 <section class="section-light">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-  </svg>
   <div class="container about-grid reveal-group">
     <!-- PLATZHALTER: Foto von Mikail Gürkan -->
     <div class="about-photo">
@@ -116,8 +102,7 @@
       <span>Foto von Mikail Gürkan folgt</span>
     </div>
     <div>
-      <div class="kicker">Unsere Geschichte</div>
-      <h2 style="font-size:clamp(24px,3.5vw,32px); font-weight:700; margin-bottom:20px; letter-spacing:-0.5px;">
+      <h2 style="font-size:clamp(34px,4vw,48px); font-weight:700; margin-bottom:20px; letter-spacing:-0.5px;">
         Websites, die Unternehmen wirklich weiterbringen
         
       </h2>
@@ -132,15 +117,15 @@
       </p>
       <div class="values reveal-group">
         <div class="value">
-          <h4>Transparenz</h4>
+          <h3>Transparenz</h3>
           <p>Klare Preise, klare Kommunikation – keine versteckten Kosten.</p>
         </div>
         <div class="value">
-          <h4>Individualität</h4>
+          <h3>Individualität</h3>
           <p>Jede Website wird auf das jeweilige Unternehmen zugeschnitten.</p>
         </div>
         <div class="value">
-          <h4>Qualität</h4>
+          <h3>Qualität</h3>
           <p>Sauberer Code, durchdachtes Design, messbare SEO-Ergebnisse.</p>
         </div>
       </div>
@@ -152,7 +137,6 @@
 <section class="section-dark">
   <div class="container">
     <div class="section-head center reveal">
-      <div class="kicker">Mission</div>
       <h2>Jedes Unternehmen verdient online sichtbar zu sein</h2>
       <p>Gerade lokale und mittelständische Unternehmen haben oft weder Zeit noch Ressourcen, sich intensiv mit Website und SEO zu beschäftigen. Genau da setzt GDS an: verständlich, unkompliziert und mit echtem Ergebnis.
       </p>
@@ -162,18 +146,6 @@
 
 <!-- ============ CTA BANNER ============ -->
 <section class="section-light cta-section">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-  </svg>
   <div class="container">
     <div class="cta-banner reveal">
       <h2>Lernen wir uns kennen</h2>
@@ -193,7 +165,7 @@
         <p>Eine starke Online-Präsenz entscheidet heute über Sichtbarkeit und Erfolg. Wir schaffen, stärken und optimieren Ihren digitalen Auftritt.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <p class="footer-title">Navigation</p>
         <ul>
           <li><a href="index.html">Startseite</a></li>
           <li><a href="leistungen.html">Leistungen</a></li>
@@ -206,10 +178,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <p class="footer-title">Kontakt</p>
         <ul>
-          <li>kontakt@gds-vs.de</li>
-          <li>+49 151 186 231 00</li>
+          <li><a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a></li>
+          <li><a href="tel:+4915118623100">+49 151 186 231 00</a></li>
           <li>Villingen-Schwenningen</li>
         </ul>
       </div>
@@ -221,6 +193,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=6"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>

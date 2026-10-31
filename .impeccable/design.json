@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T00:00:00Z",
+  "title": "Design System: GDS – Gürkan Digital Services",
+  "extensions": {
+    "colorMeta": {
+      "fir": { "role": "primary", "displayName": "Tannengrün", "canonical": "#1e3a2f", "tonalRamp": ["#0b1712", "#14271f", "#1e3a2f", "#35574a", "#587869", "#86a094", "#b3c2b8", "#e3e8e2"] },
+      "signal": { "role": "secondary", "displayName": "Wegweiser-Gelb", "canonical": "#f2c230", "tonalRamp": ["#3d2f05", "#6b5209", "#a37f10", "#d3a620", "#f2c230", "#f6d462", "#f9e393", "#fcf1c9"] },
+      "stone": { "role": "neutral", "displayName": "Kalkstein", "canonical": "#e3e8e2", "tonalRamp": ["#151a16", "#46504a", "#7b857e", "#aab4a8", "#c5d0c8", "#d2d9d0", "#e3e8e2", "#f3f6f2"] },
+      "ink": { "role": "neutral", "displayName": "Warm Black Ink", "canonical": "#151a16", "tonalRamp": ["#070908", "#0e110f", "#151a16", "#2a332c", "#46504a", "#6a746d", "#8f9992", "#b9c1bb"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1, uppercase condensed." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s and subpage H1 boards." },
+      "title": { "displayName": "Title", "purpose": "Service names, sign arms, card and trail titles." },
+      "body": { "displayName": "Body", "purpose": "Reading text in Barlow." },
+      "label": { "displayName": "Label", "purpose": "Buttons, nav, form labels." }
+    },
+    "shadows": [
+      { "name": "header-scrolled", "value": "0 6px 20px rgba(20, 39, 31, 0.1)", "purpose": "Only shadow in the system; sticky header after scroll." },
+      { "name": "board-rule", "value": "inset 0 3px 0 #151a16, inset 0 -3px 0 #151a16", "purpose": "Ink rules top and bottom of a sign board (2px on small arms)." }
+    ],
+    "motion": [
+      { "name": "reveal", "value": "0.6s ease-out, translateY(14px)", "purpose": "Scroll reveal; disabled under reduced motion." },
+      { "name": "arm-slide", "value": "0.5s cubic-bezier(0.22, 1, 0.36, 1), translateX(14px)", "purpose": "Signpost arms entering, staggered 0.12s." },
+      { "name": "state", "value": "0.2s ease", "purpose": "Hover and colour changes." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1000px" },
+      { "name": "tablet", "value": "900px" },
+      { "name": "mobile", "value": "768px" },
+      { "name": "small", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Yellow board-coloured primary action with ink text.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Kostenlose Erstberatung</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #f2c230; color: #151a16; padding: 13px 26px; border-radius: 4px; font: 600 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: background-color .2s ease, transform .2s ease; } .ds-btn-primary:hover { background: #f6d462; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 3px solid #151a16; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on green grounds.",
+      "html": "<div style=\"background:#1e3a2f;padding:20px\"><a class=\"ds-btn-outline\" href=\"#\">Leistungen ansehen</a></div>",
+      "css": ".ds-btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,.55); color: #fff; padding: 11.5px 25px; border-radius: 4px; font: 500 16px/1.4 Barlow, 'Segoe UI', Arial, sans-serif; min-height: 44px; text-decoration: none; transition: border-color .2s ease, background-color .2s ease; } .ds-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); } .ds-btn-outline:focus-visible { outline: 3px solid #f2c230; outline-offset: 3px; }"
+    },
+    {
+      "name": "Sign Board (arm)",
+      "kind": "custom",
+      "refersTo": "sign-board",
+      "description": "Yellow arrow board with ink rules; right-pointing arm.",
+      "html": "<div style=\"background:#1e3a2f;padding:24px\"><div class=\"ds-arm\"><b>Persönlich</b><span>Fester Ansprechpartner</span></div></div>",
+      "css": ".ds-arm { background: #f2c230; color: #151a16; padding: 11px 42px 11px 20px; width: 280px; box-shadow: inset 0 2px 0 #151a16, inset 0 -2px 0 #151a16; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%); } .ds-arm b { display: block; font: 700 28px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .01em; } .ds-arm span { display: block; font: 500 15px/1.3 Barlow, Arial, sans-serif; }"
+    },
+    {
+      "name": "Service List Row",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Ink-ruled service row with condensed name and arrow.",
+      "html": "<ul class=\"ds-list\"><li><a href=\"#\"><span class=\"ds-name\">Webdesign</span><span class=\"ds-text\">Ihre Website, persönlich umgesetzt.</span></a></li></ul>",
+      "css": ".ds-list { list-style: none; margin: 0; padding: 0; } .ds-list li { border-top: 2px solid #151a16; border-bottom: 2px solid #151a16; } .ds-list a { display: block; padding: 26px 56px 26px 0; color: #151a16; text-decoration: none; transition: padding .25s ease; } .ds-list a:hover { padding-left: 14px; } .ds-name { display: block; font: 700 40px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin-bottom: 6px; } .ds-text { display: block; color: #46504a; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Paper card with hairline border.",
+      "html": "<div class=\"ds-card\"><h3>Redesign</h3><p>Aus alt wird übersichtlich und schnell.</p></div>",
+      "css": ".ds-card { background: #f3f6f2; border: 1px solid #d2d9d0; border-radius: 6px; padding: 34px 32px; } .ds-card h3 { font: 700 34px/1.05 'Barlow Condensed', 'Arial Narrow', sans-serif; margin: 0 0 12px; color: #151a16; } .ds-card p { margin: 0; color: #46504a; font: 400 17px/1.6 Barlow, Arial, sans-serif; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Paper field with fir focus outline.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Ihr Name\">",
+      "css": ".ds-input { width: 100%; padding: 13px 16px; border: 1.5px solid #aab4a8; border-radius: 4px; font: 400 17px Barlow, Arial, sans-serif; background: #f3f6f2; color: #151a16; } .ds-input:focus-visible { outline: 3px solid #1e3a2f; outline-offset: 1px; border-color: #1e3a2f; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Header links with yellow active underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"active\" href=\"#\">Start</a><a href=\"#\">Leistungen</a><a href=\"#\">Kontakt</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 36px; background: #f3f6f2; padding: 20px 24px; } .ds-nav a { position: relative; color: #46504a; font: 500 16px Barlow, Arial, sans-serif; padding: 6px 0; text-decoration: none; transition: color .2s ease; } .ds-nav a:hover, .ds-nav a.active { color: #151a16; } .ds-nav a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px; background: #f2c230; } .ds-nav a:focus-visible { outline: 3px solid #1e3a2f; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Der Wegweiser",
+    "overview": "The site is a Schwarzwald-Baar hiking signpost: it points a local business owner to the next step. Flat Tannengrün grounds carry Wegweiser-Gelb arrow boards lettered in black ink; Kalkstein sections give the reading rhythm in between. The world stays recognisable with all content removed: yellow arrow boards on a green field.\n\nThe tone is calm and precise. Sign lettering is condensed, uppercase where it is a sign, and reading text is plain Barlow. Every board is flat, with one pointed end and a thin ink rule top and bottom; depth comes from colour blocks, not effects. A person and a place come before decoration.",
+    "keyCharacteristics": [
+      "Fir-green ground, yellow signal boards, limestone reading sections, warm-black ink.",
+      "Arrow-shaped boards (clip-path point) with 2–3px ink rules inside top and bottom edges.",
+      "Barlow Condensed for sign lettering and headings, Barlow for reading.",
+      "Flat at rest; motion is small fades and 6–14px slides, all disabled under reduced motion.",
+      "One owner-fixed exception: the \"GDS.\" wordmark."
+    ],
+    "rules": [
+      { "name": "The Signal Scarcity Rule", "body": "Yellow appears only on boards, the primary action, and small markers (underline, dots, price). Never as a section background except the closing board.", "section": "colors" },
+      { "name": "The Ink-On-Yellow Rule", "body": "Text on yellow is always ink, never white or green.", "section": "colors" },
+      { "name": "The Sign-Or-Read Rule", "body": "Condensed face for signs and headings, Barlow for anything read in sentences. Headings use text-wrap: balance.", "section": "typography" },
+      { "name": "The Flat-Board Rule", "body": "Boards carry no drop shadows; their edge is the ink rule drawn as an inset shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put yellow only on arrow boards, the primary action and small markers, with ink text.",
+      "Do draw boards flat: one pointed end, 2–3px ink rules top and bottom.",
+      "Do use Barlow Condensed for headings and sign text, Barlow for sentences.",
+      "Do keep the \"GDS.\" wordmark exactly as is (Manrope 800, indigo gradient, #7a7ae0 dot, \"Webdesign & SEO\" subline).",
+      "Do keep 44px minimum touch height and visible 3px focus outlines; wrap all motion in reduced-motion fallbacks.",
+      "Do use en dashes and formal German \"Sie\"."
+    ],
+    "donts": [
+      "Don't use gradient text, glow, particle or canvas effects, or navy and indigo outside the wordmark.",
+      "Don't add drop shadows to boards or cards.",
+      "Don't invent photos, references, numbers or testimonials.",
+      "Don't use typewriter or counting animations."
+    ]
+  }
+}

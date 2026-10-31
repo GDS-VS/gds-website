@@ -22,7 +22,7 @@
     hideWipGate();
   }
 
-  // ---- Homepage hero intro: calm stat entrance + rotating headline phrase ----
+  // ---- Homepage hero intro: signpost arms entrance + rotating headline phrase ----
   // Only actually starts once the hero is visible (i.e. not hidden behind the
   // WIP gate), otherwise it would play out unseen while the gate is up and
   // look "finished" the moment someone unlocks it.
@@ -31,12 +31,12 @@
     if (heroIntroStarted) return;
     heroIntroStarted = true;
 
-    const heroStats = document.querySelector('.hero-stats');
+    const heroPost = document.querySelector('.hero-post');
     const phraseWrap = document.querySelector('.hero-phrase');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (heroStats) {
-      requestAnimationFrame(() => heroStats.classList.add('is-visible'));
+    if (heroPost) {
+      requestAnimationFrame(() => heroPost.classList.add('is-visible'));
     }
 
     if (phraseWrap && !reduceMotion) {
@@ -44,7 +44,7 @@
       if (items.length > 1) {
         let idx = Math.max(0, items.findIndex((el) => el.classList.contains('is-active')));
         const HOLD = 3000;
-        const TRANSITION = 550;
+        const TRANSITION = 800;
         const advance = () => {
           const current = items[idx];
           idx = (idx + 1) % items.length;
@@ -87,23 +87,20 @@
     const burger = document.getElementById('burger');
     const nav = document.getElementById('mainNav');
     if (burger && nav) {
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('open');
-        nav.classList.toggle('open');
-      });
-      nav.querySelectorAll('a').forEach((a) =>
-        a.addEventListener('click', () => {
-          burger.classList.remove('open');
-          nav.classList.remove('open');
-        })
-      );
+      const setMenu = (open) => {
+        burger.classList.toggle('open', open);
+        nav.classList.toggle('open', open);
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      };
+      burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+      nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); burger.focus(); } });
     }
 
-    // Header scroll shadow (the header is always the light variant now, so no
-    // adaptive dark/light contrast switching is needed any more)
+    // Header scroll shadow
     const header = document.querySelector('header.site-header');
     if (header) {
-      header.classList.add('on-light');
       const onScroll = () => {
         header.classList.toggle('scrolled', window.scrollY > 10);
       };

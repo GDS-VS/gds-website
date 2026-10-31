@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDS – Webdesign &amp; SEO aus Villingen-Schwenningen">
 <meta name="twitter:description" content="GDS erstellt und optimiert professionelle Websites für Unternehmen in Villingen-Schwenningen und der Region – Webdesign, SEO, Redesign &amp; Wartung, persönlich vor Ort.">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,7 +76,7 @@
     </nav>
     <div class="header-right">
       <a href="kontakt.html" class="btn-cta">Erstberatung</a>
-      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -83,44 +84,39 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>
-      Webdesign &amp; SEO aus Villingen-Schwenningen
-    </div>
-    <h1>
-      <span class="sr-only">Websites, die gefunden werden, überzeugen und Wachstum bringen.</span>
-      <span aria-hidden="true">Websites, die
-        <span class="hero-phrase">
-          <span class="hero-phrase-item is-active">gefunden werden.</span>
-          <span class="hero-phrase-item">überzeugen.</span>
-          <span class="hero-phrase-item">Wachstum bringen.</span>
+  <div class="container hero-grid">
+    <div class="hero-inner">
+      <h1>
+        <span class="sr-only">Websites, die gefunden werden, überzeugen und Wachstum bringen.</span>
+        <span aria-hidden="true">Websites, die
+          <span class="hero-phrase">
+            <span class="hero-phrase-item is-active">gefunden werden.</span>
+            <span class="hero-phrase-item">überzeugen.</span>
+            <span class="hero-phrase-item">Wachstum bringen.</span>
+          </span>
         </span>
-      </span>
-    </h1>
-    <p class="lead">
-      GDS ist Ihr lokales Unternehmen aus Villingen-Schwenningen für professionelle Websites – persönlich vor Ort, statt anonymer Groß-Agentur. Klar im Design, stark im Ranking.
-    </p>
-    <div class="hero-actions">
-      <a href="kontakt.html" class="btn-cta">Kostenlose Erstberatung sichern</a>
-      <a href="leistungen.html" class="btn-outline">Leistungen ansehen</a>
+      </h1>
+      <p class="lead">
+        GDS ist Ihr lokales Unternehmen aus Villingen-Schwenningen für professionelle Websites – persönlich vor Ort, statt anonymer Groß-Agentur. Klar im Design, stark im Ranking.
+      </p>
+      <div class="hero-actions">
+        <a href="kontakt.html" class="btn-cta">Kostenlose Erstberatung sichern</a>
+        <a href="leistungen.html" class="btn-outline">Leistungen ansehen</a>
+      </div>
+      <p class="hero-contact">
+        Mikail Gürkan antwortet persönlich – meist innerhalb eines Werktags.<br>
+        <a href="tel:+4915118623100">+49 151 186 231 00</a> · <a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a>
+      </p>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><b>Persönlich</b>Fester Ansprechpartner</div>
-      <div class="stat"><b>Vor Ort</b>in der Region</div>
-      <div class="stat"><b>Kostenlos</b>Erstberatung</div>
-      <div class="stat"><b>1 Werktag</b>bis zur Antwort</div>
+    <div class="hero-post" role="list" aria-label="Das erwartet Sie bei GDS">
+      <div class="post-arm post-arm--r" role="listitem"><b>Persönlich</b><span>Fester Ansprechpartner</span></div>
+      <div class="post-arm post-arm--l" role="listitem"><b>Vor Ort</b><span>in Villingen-Schwenningen und Region</span></div>
+      <div class="post-arm post-arm--r" role="listitem"><b>Kostenlos</b><span>Erstberatung</span></div>
+      <div class="post-arm post-arm--l" role="listitem"><b>1 Werktag</b><span>bis zur Antwort</span></div>
     </div>
   </div>
-  <!-- PLATZHALTER: Foto von Mikail Gürkan folgt (siehe .hero-person) -->
-  <aside class="hero-person" aria-label="Ihr Ansprechpartner">
-    <div class="hero-person-photo">
-      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><circle cx="60" cy="46" r="20" stroke="currentColor" stroke-width="2"/><path d="M20 108c2-24 20-38 40-38s38 14 40 38" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <span>Foto folgt</span>
-    </div>
-    <div class="hero-person-name">Mikail Gürkan</div>
-    <div class="hero-person-role">Ihr fester Ansprechpartner bei GDS</div>
-  </aside>
 </section>
+
 
 <!-- ============ SERVICE AREA STRIP ============ -->
 <section class="area-strip">
@@ -135,95 +131,53 @@
 
 <!-- ============ SERVICES TEASER ============ -->
 <section class="section-light">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-  </svg>
-  <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">Was wir tun</div>
+  <div class="container services-grid">
+    <div class="services-intro reveal">
       <h2>Webdesign, SEO, Redesign und Wartung</h2>
       <p>Von der ersten Idee bis zur laufenden Betreuung – alles aus einer Hand.</p>
+      <a href="leistungen.html" class="link-arrow">Alle Leistungen und Preise</a>
     </div>
-    <div class="grid-3 grid-4 reveal-group">
-      <div class="card">
-        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
-        <h3>Website-Erstellung</h3>
-        <p>Moderne, responsive Websites nach Maß.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
-        <h3>SEO-Optimierung</h3>
-        <p>Bessere Sichtbarkeit bei Google &amp; Co.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></div>
-        <h3>Redesign</h3>
-        <p>Frischer Auftritt für bestehende Seiten.</p>
-      </div>
-      <div class="card">
-        <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
-        <h3>Wartung</h3>
-        <p>Laufende Pflege, Updates &amp; Support.</p>
-      </div>
-    </div>
+    <ul class="service-list reveal-group">
+      <li><a href="leistungen.html"><span class="service-name">Website-Erstellung</span><span class="service-text">Moderne, responsive Websites nach Maß.</span></a></li>
+      <li><a href="leistungen.html"><span class="service-name">SEO-Optimierung</span><span class="service-text">Bessere Sichtbarkeit bei Google &amp; Co.</span></a></li>
+      <li><a href="leistungen.html"><span class="service-name">Redesign</span><span class="service-text">Frischer Auftritt für bestehende Seiten.</span></a></li>
+      <li><a href="leistungen.html"><span class="service-name">Wartung</span><span class="service-text">Laufende Pflege, Updates &amp; Support.</span></a></li>
+    </ul>
   </div>
 </section>
+
 
 <!-- ============ PROCESS ============ -->
 <section class="section-dark">
   <div class="container">
-    <div class="section-head center reveal">
-      <div class="kicker">Ablauf</div>
+    <div class="section-head reveal">
       <h2>Vom ersten Gespräch bis zum Livegang</h2>
     </div>
-    <div class="steps reveal-group">
-      <div class="step">
-        <span class="num">01</span>
-        <h4>Erstberatung</h4>
+    <ol class="trail reveal-group">
+      <li>
+        <h3>Erstberatung</h3>
         <p>Kostenloses Gespräch über Ihre Ziele &amp; Wünsche.</p>
-      </div>
-      <div class="step">
-        <span class="num">02</span>
-        <h4>Konzept</h4>
+      </li>
+      <li>
+        <h3>Konzept</h3>
         <p>Individuelles Angebot &amp; Design-Konzept.</p>
-      </div>
-      <div class="step">
-        <span class="num">03</span>
-        <h4>Umsetzung</h4>
+      </li>
+      <li>
+        <h3>Umsetzung</h3>
         <p>Design, Entwicklung &amp; SEO-Setup.</p>
-      </div>
-      <div class="step">
-        <span class="num">04</span>
-        <h4>Launch &amp; Pflege</h4>
+      </li>
+      <li>
+        <h3>Launch &amp; Pflege</h3>
         <p>Live-Schaltung und laufende Betreuung.</p>
-      </div>
-    </div>
+      </li>
+    </ol>
+    <p class="trail-note">Lieferzeit: Basic ca. 1–2 Wochen, Advanced ca. 2–4 Wochen – Details bei den <a href="leistungen.html" class="link-arrow" style="margin:0;">Preisen</a>.</p>
   </div>
 </section>
 
+
 <!-- ============ CTA BANNER ============ -->
-<section class="section-light cta-section" style="padding-bottom:100px;">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1150" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-    <circle cx="50" cy="380" r="45" stroke="rgba(25,25,112,0.06)" stroke-width="1.4"/>
-  </svg>
+<section class="section-light">
   <div class="container">
     <div class="cta-banner reveal">
       <h2>Erzählen Sie uns von Ihrem Projekt.</h2>
@@ -244,7 +198,7 @@
         <p>Eine starke Online-Präsenz entscheidet heute über Sichtbarkeit und Erfolg. Wir schaffen, stärken und optimieren Ihren digitalen Auftritt.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <p class="footer-title">Navigation</p>
         <ul>
           <li><a href="index.html">Startseite</a></li>
           <li><a href="leistungen.html">Leistungen</a></li>
@@ -257,10 +211,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <p class="footer-title">Kontakt</p>
         <ul>
-          <li>kontakt@gds-vs.de</li>
-          <li>+49 151 186 231 00</li>
+          <li><a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a></li>
+          <li><a href="tel:+4915118623100">+49 151 186 231 00</a></li>
           <li>Villingen-Schwenningen</li>
         </ul>
       </div>
@@ -272,6 +226,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=6"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>

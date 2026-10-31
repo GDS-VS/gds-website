@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Häufige Fragen – GDS Villingen-Schwenningen">
 <meta name="twitter:description" content="Antworten auf die häufigsten Fragen zu Ablauf, Kosten, Dauer und Zusammenarbeit mit GDS in Villingen-Schwenningen.">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -117,20 +118,17 @@
     </nav>
     <div class="header-right">
       <a href="kontakt.html" class="btn-cta">Erstberatung</a>
-      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
-<section class="hero" style="padding:80px 0 70px;">
+<section class="hero hero-page">
   <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>
-      Fragen &amp; Antworten
-    </div>
-    <h1 style="font-size:clamp(30px,4.5vw,46px);">
-      Häufige <span class="grad-text">Fragen</span>
+    <h1>
+      Häufige Fragen
     </h1>
     <p class="lead">
       Alles, was Kunden uns vor dem Start am häufigsten fragen – kompakt an einem Ort.
@@ -140,28 +138,16 @@
 
 <!-- ============ FAQ PANEL ============ -->
 <section class="section-light faq-section">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-  </svg>
   <div class="container">
     <div class="faq-intro reveal">
-      <div class="kicker">Bevor Sie starten</div>
       <p>War Ihre Frage nicht dabei? Schreiben Sie uns einfach direkt – wir antworten meist innerhalb eines Werktags.</p>
     </div>
     <div class="faq-panel reveal-group">
       <div class="faq-list">
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">01</span>
             <span class="faq-q-text">Warum braucht mein Unternehmen überhaupt eine eigene Website?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Jeden Tag suchen Menschen online nach genau dem, was Sie anbieten – finden sie Sie nicht, landen sie bei der Konkurrenz. Ohne Website oder mit einer veralteten Seite verlieren Sie so nicht nur Sichtbarkeit, sondern bares Geld: Aufträge und Kunden, die nie bei Ihnen ankommen, weil sie längst woanders gebucht haben. Genau das ändern wir – mit einer Website, die Sie sichtbar macht und aus Besuchern Kunden werden lässt.
@@ -169,9 +155,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">02</span>
             <span class="faq-q-text">Was bedeutet SEO eigentlich, und brauche ich das?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             SEO (Suchmaschinenoptimierung) sorgt dafür, dass Ihre Website bei Google gefunden wird, wenn jemand nach Ihren Leistungen sucht – ohne SEO bleibt selbst die schönste Website oft unsichtbar, während sichtbare Konkurrenten Ihre Kunden gewinnen. Da sich Suchmaschinen und Wettbewerb ständig verändern, ist SEO keine einmalige Sache, sondern eine laufende Dienstleistung, die Ihre Sichtbarkeit dauerhaft sichert.
@@ -179,9 +164,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">03</span>
             <span class="faq-q-text">Warum sollte ich GDS statt einer großen Agentur beauftragen?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Bei uns kommunizieren Sie direkt und persönlich mit uns, statt mit wechselnden Ansprechpartnern oder anonymen Support-Tickets. Als lokales Unternehmen aus Villingen-Schwenningen sind persönliche Termine vor Ort für uns selbstverständlich.
@@ -189,9 +173,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">04</span>
             <span class="faq-q-text">Warum keine Baukasten-Website oder ein Anbieter von außerhalb der Region?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Baukasten-Websites sind schnell erstellt, aber oft austauschbar, technisch träge und schwer bei Google zu finden. Anbieter von außerhalb der Region kennen zudem weder Ihre lokale Konkurrenz noch das Suchverhalten Ihrer Kunden vor Ort. Wir bauen Ihre Website individuell und technisch sauber auf – mit dem Wissen, wie Kunden in Villingen-Schwenningen und der Region tatsächlich suchen.
@@ -199,9 +182,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">05</span>
             <span class="faq-q-text">Wie läuft die Zusammenarbeit während des Projekts ab?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Alles beginnt mit einem entspannten, unverbindlichen Gespräch, in dem wir Ihre Wünsche und Ideen kennenlernen. Daraus entsteht gemeinsam ein Konzept, das wir mit Ihnen abstimmen – Sie begleiten den Fortschritt jederzeit und dürfen gerne mitgestalten, bis sich alles genau richtig anfühlt.
@@ -209,9 +191,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">06</span>
             <span class="faq-q-text">Was muss ich selbst liefern?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Am liebsten arbeiten wir mit dem, was Sie bereits haben – Texte, Bilder oder ein Logo, falls vorhanden. Fehlt etwas, besprechen wir gemeinsam, wie wir die fehlenden Inhalte für Sie ergänzen können.
@@ -219,9 +200,8 @@
         </div>
         <div class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false">
-            <span class="faq-num">07</span>
             <span class="faq-q-text">Ist meine Website nach dem Launch weiterhin in guten Händen?</span>
-            <span class="faq-icon">+</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="faq-a"><p>
             Ja, auf jeden Fall. Auch nach dem Launch lassen wir Sie nicht allein – egal ob kleine Anpassung oder größere Weiterentwicklung, melden Sie sich einfach bei uns.
@@ -246,7 +226,7 @@
         <p>Eine starke Online-Präsenz entscheidet heute über Sichtbarkeit und Erfolg. Wir schaffen, stärken und optimieren Ihren digitalen Auftritt.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <p class="footer-title">Navigation</p>
         <ul>
           <li><a href="index.html">Startseite</a></li>
           <li><a href="leistungen.html">Leistungen</a></li>
@@ -259,10 +239,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <p class="footer-title">Kontakt</p>
         <ul>
-          <li>kontakt@gds-vs.de</li>
-          <li>+49 151 186 231 00</li>
+          <li><a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a></li>
+          <li><a href="tel:+4915118623100">+49 151 186 231 00</a></li>
           <li>Villingen-Schwenningen</li>
         </ul>
       </div>
@@ -274,6 +254,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=6"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Impressum – GDS Villingen-Schwenningen">
 <meta name="twitter:description" content="Impressum von GDS – Mikail Gürkan, Villingen-Schwenningen.">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=17">
 </head><body>
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
 
@@ -53,19 +54,16 @@
     </nav>
     <div class="header-right">
       <a href="kontakt.html" class="btn-cta">Erstberatung</a>
-      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
-<section class="hero" style="padding:80px 0 60px;">
+<section class="hero hero-page">
   <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>
-      Rechtliches
-    </div>
-    <h1 style="font-size:clamp(30px,4.5vw,46px);">Impressum</h1>
+    <h1>Impressum</h1>
   </div>
 </section>
 
@@ -74,7 +72,7 @@
   <div class="container">
     <div style="max-width:640px; margin:0 auto; color:var(--gray-700); font-size:15.5px; line-height:1.75;">
 
-      <h2 style="font-size:19px; font-weight:700; color:var(--navy); margin:36px 0 12px;">Angaben gemäß § 5 DDG</h2>
+      <h2 style="font-size:30px; font-weight:700; color:var(--fir); margin:36px 0 12px;">Angaben gemäß § 5 DDG</h2>
       <p>
         Mikail Gürkan<br>
         Matthias-Grünewald-Weg 15<br>
@@ -82,30 +80,30 @@
         Deutschland
       </p>
 
-      <h2 style="font-size:19px; font-weight:700; color:var(--navy); margin:36px 0 12px;">Kontakt</h2>
+      <h2 style="font-size:30px; font-weight:700; color:var(--fir); margin:36px 0 12px;">Kontakt</h2>
       <p>
         Telefon: <a href="tel:+4915118623100">+49 151 186 231 00</a><br>
         E-Mail: <a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a>
       </p>
 
-      <h2 style="font-size:19px; font-weight:700; color:var(--navy); margin:36px 0 12px;">Umsatzsteuer</h2>
+      <h2 style="font-size:30px; font-weight:700; color:var(--fir); margin:36px 0 12px;">Umsatzsteuer</h2>
       <p>
         Gemäß § 19 Abs. 1 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).
       </p>
 
-      <h2 style="font-size:19px; font-weight:700; color:var(--navy); margin:36px 0 12px;">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <h2 style="font-size:30px; font-weight:700; color:var(--fir); margin:36px 0 12px;">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
       <p>
         Mikail Gürkan<br>
         Matthias-Grünewald-Weg 15<br>
         78054 Villingen-Schwenningen
       </p>
 
-      <h2 style="font-size:19px; font-weight:700; color:var(--navy); margin:36px 0 12px;">Verbraucherstreitbeilegung</h2>
+      <h2 style="font-size:30px; font-weight:700; color:var(--fir); margin:36px 0 12px;">Verbraucherstreitbeilegung</h2>
       <p>
         Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
       </p>
 
-      <p style="margin-top:48px; font-size:13px; color:var(--gray-500);">Stand: 29.07.2026</p>
+      <p style="margin-top:48px; font-size:13px; color:var(--gray-700);">Stand: 29.07.2026</p>
     </div>
   </div>
 </section>
@@ -120,7 +118,7 @@
         <p>Eine starke Online-Präsenz entscheidet heute über Sichtbarkeit und Erfolg. Wir schaffen, stärken und optimieren Ihren digitalen Auftritt.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <p class="footer-title">Navigation</p>
         <ul>
           <li><a href="index.html">Startseite</a></li>
           <li><a href="leistungen.html">Leistungen</a></li>
@@ -133,10 +131,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <p class="footer-title">Kontakt</p>
         <ul>
-          <li>kontakt@gds-vs.de</li>
-          <li>+49 151 186 231 00</li>
+          <li><a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a></li>
+          <li><a href="tel:+4915118623100">+49 151 186 231 00</a></li>
           <li>Villingen-Schwenningen</li>
         </ul>
       </div>
@@ -148,6 +146,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=6"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>

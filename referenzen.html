@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -17,7 +18,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Referenzen – GDS Villingen-Schwenningen">
 <meta name="twitter:description" content="Ein Blick auf bisherige und laufende Projekte von GDS aus Villingen-Schwenningen.">
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,20 +75,17 @@
     </nav>
     <div class="header-right">
       <a href="kontakt.html" class="btn-cta">Erstberatung</a>
-      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <main id="main" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
-<section class="hero" style="padding:80px 0 70px;">
+<section class="hero hero-page">
   <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>
-      Referenzen
-    </div>
-    <h1 style="font-size:clamp(30px,4.5vw,46px);">
-      Unsere <span class="grad-text">Projekte</span>
+    <h1>
+      Unsere Projekte
     </h1>
     <p class="lead">
       Ein Blick auf bisherige und laufende Arbeiten von GDS.
@@ -97,41 +95,11 @@
 
 <!-- ============ REFERENZEN CONTENT ============ -->
 <section class="section-light">
-  <svg class="section-deco" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
-    <circle cx="1120" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="80" cy="90" r="130" stroke="rgba(25,25,112,0.07)" stroke-width="1.5"/>
-    <circle cx="60" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1140" cy="620" r="100" stroke="#7a7ae0" stroke-opacity="0.15" stroke-width="1.6" stroke-dasharray="3 4"/>
-    <circle cx="1080" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="120" cy="600" r="6" fill="#7a7ae0" fill-opacity="0.22"/>
-    <circle cx="90" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-    <circle cx="1110" cy="80" r="5" fill="rgba(25,25,112,0.14)"/>
-  </svg>
   <div class="container">
     <div class="ref-construction reveal">
-      <svg class="ref-icon" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-        <circle cx="80" cy="80" r="70" stroke="#7a7ae0" stroke-opacity="0.4" stroke-width="1.6" stroke-dasharray="4 6" class="ref-ring"/>
-        <rect x="40" y="52" width="80" height="56" rx="8" stroke="#191970" stroke-width="2.2"/>
-        <line x1="40" y1="68" x2="120" y2="68" stroke="#191970" stroke-width="2"/>
-        <circle cx="50" cy="60" r="2.4" fill="#7a7ae0"/>
-        <circle cx="59" cy="60" r="2.4" fill="#7a7ae0"/>
-        <circle cx="68" cy="60" r="2.4" fill="#7a7ae0"/>
-        <line x1="52" y1="82" x2="90" y2="82" stroke="#c7c9cd" stroke-width="2" stroke-linecap="round"/>
-        <line x1="52" y1="94" x2="75" y2="94" stroke="#c7c9cd" stroke-width="2" stroke-linecap="round"/>
-        <g class="ref-pulse">
-          <circle cx="122" cy="46" r="13" fill="#191970"/>
-          <path d="M116,46 L120,50 L128,41" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </g>
-      </svg>
-      <h2 class="shimmer-heading" style="font-size:clamp(22px,3vw,28px); font-weight:700; letter-spacing:-0.5px;">Diese Seite wird gerade vorbereitet</h2>
-      <p>Diese Seite befindet sich gerade im Aufbau. In Kürze stellen wir hier eine Auswahl unserer Projekte vor — bis dahin lernen Sie uns am besten in einem persönlichen Gespräch kennen.</p>
+      <h2>Referenzen folgen in Kürze</h2>
+      <p>Diese Seite befindet sich gerade im Aufbau. In Kürze stellen wir hier eine Auswahl unserer Projekte vor – bis dahin lernen Sie uns am besten in einem persönlichen Gespräch kennen.</p>
       <a href="kontakt.html" class="btn-cta">Jetzt Kontakt aufnehmen</a>
-    </div>
-    <div class="ref-grid reveal-group" aria-label="Platzhalter für kommende Referenzen">
-      <!-- PLATZHALTER: echte Referenzprojekte hier einsetzen -->
-      <div class="ref-card"><div class="ref-card-frame"><span></span><span></span><span></span></div><div class="ref-card-body"><i></i><i></i><i></i></div><div class="ref-card-label">Projekt folgt<small>Branche · Ort</small></div></div>
-      <div class="ref-card"><div class="ref-card-frame"><span></span><span></span><span></span></div><div class="ref-card-body"><i></i><i></i><i></i></div><div class="ref-card-label">Projekt folgt<small>Branche · Ort</small></div></div>
-      <div class="ref-card"><div class="ref-card-frame"><span></span><span></span><span></span></div><div class="ref-card-body"><i></i><i></i><i></i></div><div class="ref-card-label">Projekt folgt<small>Branche · Ort</small></div></div>
     </div>
   </div>
 </section>
@@ -146,7 +114,7 @@
         <p>Eine starke Online-Präsenz entscheidet heute über Sichtbarkeit und Erfolg. Wir schaffen, stärken und optimieren Ihren digitalen Auftritt.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <p class="footer-title">Navigation</p>
         <ul>
           <li><a href="index.html">Startseite</a></li>
           <li><a href="leistungen.html">Leistungen</a></li>
@@ -159,10 +127,10 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <p class="footer-title">Kontakt</p>
         <ul>
-          <li>kontakt@gds-vs.de</li>
-          <li>+49 151 186 231 00</li>
+          <li><a href="mailto:kontakt@gds-vs.de">kontakt@gds-vs.de</a></li>
+          <li><a href="tel:+4915118623100">+49 151 186 231 00</a></li>
           <li>Villingen-Schwenningen</li>
         </ul>
       </div>
@@ -174,6 +142,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=6"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>
